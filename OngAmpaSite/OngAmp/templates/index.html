@@ -1,10 +1,13 @@
-<!DOCTYPE html>
-<html>
-<body>
+{% extends "base.html" %}
+{% load static %}
 
-<h1>Hello Tabiel!</h1>
-<p>Welcome to my first TabiDjango Tabiproject!</p>
-<img src="https://i.pinimg.com/736x/47/22/6d/47226d2ed4f86566d034bfb274407763.jpg" alt="">
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+{% endblock %}
 
-</body>
-</html>
+{% block content %}
+<h1>Olá mundo!</h1>
+<p>Protótipo</p>
+
+
+{% endblock %}

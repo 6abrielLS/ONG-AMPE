@@ -1,0 +1,77 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    {% block extra_css %}{% endblock %}
+    <link rel="stylesheet" href="{% static 'css/style-base.css' %}" />
+    <title>Site ONG</title>
+  </head>
+  <body>
+    <div class="primeira-div">
+      <header>
+        <div class="container-logo">
+          <a href="#" class="logo-link">
+            <img
+              src="{% static 'img/logo-ampa.jpg' %}"
+              class="logo-navbar"
+              alt="logo"
+            />
+          </a>
+          <h1 class="slogan">ONG AMPE</h1>
+        </div>
+        <nav>
+          <ul class="nav-links">
+            <li><a href="#">Início</a></li>
+            <li><a href="#">Sobre nós</a></li>
+            <li><a href="#">Contato</a></li>
+            <li><a href="#">Área administrativa</a></li>
+          </ul>
+        </nav>
+        <a href="#"><button>Adote um Pet</button></a>
+      </header>
+      <main>
+        <div
+          id="carouselExampleAutoplaying"
+          class="carousel slide"
+          data-bs-ride="carousel"
+        >
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <img src="https://s2-epocanegocios.glbimg.com/EgIcnM-G3CMJv8zDUD72nyX5jcY=/0x0:2048x1152/984x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_e536e40f1baf4c1a8bf1ed12d20577fd/internal_photos/bs/2023/Q/n/mEAcJeRSqMTwFB0vexAg/c.a.i.o-lovely-anime-environmental-art-in-the-style-of-studio-g-d01afad6-2d7a-41c9-b29d-5e1a847d0477.png" class="d-block w-100" alt="..." />
+            </div>
+            <div class="carousel-item">
+              <img src="https://s2-epocanegocios.glbimg.com/EgIcnM-G3CMJv8zDUD72nyX5jcY=/0x0:2048x1152/984x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_e536e40f1baf4c1a8bf1ed12d20577fd/internal_photos/bs/2023/Q/n/mEAcJeRSqMTwFB0vexAg/c.a.i.o-lovely-anime-environmental-art-in-the-style-of-studio-g-d01afad6-2d7a-41c9-b29d-5e1a847d0477.png" class="d-block w-100" alt="..." />
+            </div>
+            <div class="carousel-item">
+              <img src="https://s2-epocanegocios.glbimg.com/EgIcnM-G3CMJv8zDUD72nyX5jcY=/0x0:2048x1152/984x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_e536e40f1baf4c1a8bf1ed12d20577fd/internal_photos/bs/2023/Q/n/mEAcJeRSqMTwFB0vexAg/c.a.i.o-lovely-anime-environmental-art-in-the-style-of-studio-g-d01afad6-2d7a-41c9-b29d-5e1a847d0477.png" class="d-block w-100" alt="..." />
+            </div>
+          </div>
+          <button
+            class="carousel-control-prev"
+            type="button"
+            data-bs-target="#carouselExampleAutoplaying"
+            data-bs-slide="prev"
+          >
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button
+            class="carousel-control-next"
+            type="button"
+            data-bs-target="#carouselExampleAutoplaying"
+            data-bs-slide="next"
+          >
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
+      </main>
+
+      <footer></footer>
+    </div>
+    {% block content %}{% endblock %}
+  </body>
+</html>
