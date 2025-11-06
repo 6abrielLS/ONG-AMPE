@@ -11,67 +11,68 @@
   </head>
   <body>
     <div class="primeira-div">
-      <header>
-        <div class="container-logo">
+      <header id="navbar">
+        <div class="container">
           <a href="#" class="logo-link">
-            <img
-              src="{% static 'img/logo-ampa.jpg' %}"
-              class="logo-navbar"
-              alt="logo"
-            />
+            <div class="container-logo">
+              <img
+                src="{% static 'img/logo-ampa.jpg' %}"
+                class="logo-navbar"
+                alt="logo"
+              />
+            </div>
           </a>
-          <h1 class="slogan">ONG AMPE</h1>
+          <!--<h1 class="slogan">ONG AMPE</h1>-->
+
+          <nav>
+            <ul class="nav-links">
+              <li><a href="#">Início</a></li>
+              <li><a href="#">Sobre nós</a></li>
+              <li><a href="#">Contato</a></li>
+              <li><a href="#">Área administrativa</a></li>
+            </ul>
+          </nav>
+          <a href="#"><button>Adote um Pet</button></a>
         </div>
-        <nav>
-          <ul class="nav-links">
-            <li><a href="#">Início</a></li>
-            <li><a href="#">Sobre nós</a></li>
-            <li><a href="#">Contato</a></li>
-            <li><a href="#">Área administrativa</a></li>
-          </ul>
-        </nav>
-        <a href="#"><button>Adote um Pet</button></a>
       </header>
       <main>
-        <div
-          id="carouselExampleAutoplaying"
-          class="carousel slide"
-          data-bs-ride="carousel"
-        >
-          <div class="carousel-inner">
-            <div class="carousel-item active">
-              <img src="https://s2-epocanegocios.glbimg.com/EgIcnM-G3CMJv8zDUD72nyX5jcY=/0x0:2048x1152/984x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_e536e40f1baf4c1a8bf1ed12d20577fd/internal_photos/bs/2023/Q/n/mEAcJeRSqMTwFB0vexAg/c.a.i.o-lovely-anime-environmental-art-in-the-style-of-studio-g-d01afad6-2d7a-41c9-b29d-5e1a847d0477.png" class="d-block w-100" alt="..." />
+        <div class="gradient-background">
+
+          <div class="container-size">
+            
+            <div class="left-content">
+              <h1 class="primary-style">Faça a diferença</h1>
+              <h1 class="primary-style">sem sair de casa!</h1>
+              <p class="secondary-style">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Perferendis labore voluptatum quae praesentium asperiores itaque quisquam laboriosam repellat. Odio assumenda eligendi eius non. Aperiam rerum ex molestiae a quaerat iure?</p>
             </div>
-            <div class="carousel-item">
-              <img src="https://s2-epocanegocios.glbimg.com/EgIcnM-G3CMJv8zDUD72nyX5jcY=/0x0:2048x1152/984x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_e536e40f1baf4c1a8bf1ed12d20577fd/internal_photos/bs/2023/Q/n/mEAcJeRSqMTwFB0vexAg/c.a.i.o-lovely-anime-environmental-art-in-the-style-of-studio-g-d01afad6-2d7a-41c9-b29d-5e1a847d0477.png" class="d-block w-100" alt="..." />
-            </div>
-            <div class="carousel-item">
-              <img src="https://s2-epocanegocios.glbimg.com/EgIcnM-G3CMJv8zDUD72nyX5jcY=/0x0:2048x1152/984x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_e536e40f1baf4c1a8bf1ed12d20577fd/internal_photos/bs/2023/Q/n/mEAcJeRSqMTwFB0vexAg/c.a.i.o-lovely-anime-environmental-art-in-the-style-of-studio-g-d01afad6-2d7a-41c9-b29d-5e1a847d0477.png" class="d-block w-100" alt="..." />
+            <div class="right-content">
+              <img src="https://preview.redd.it/make-this-picture-of-my-dog-look-like-the-dog-accepting-its-v0-eopk8hj75ipe1.jpg?width=640&crop=smart&auto=webp&s=ea804c09fca8f4348327af2b05b36014b44c799e" alt="">
             </div>
           </div>
-          <button
-            class="carousel-control-prev"
-            type="button"
-            data-bs-target="#carouselExampleAutoplaying"
-            data-bs-slide="prev"
-          >
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-          </button>
-          <button
-            class="carousel-control-next"
-            type="button"
-            data-bs-target="#carouselExampleAutoplaying"
-            data-bs-slide="next"
-          >
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-          </button>
         </div>
       </main>
 
       <footer></footer>
     </div>
+    <script>
+      let lastScrollTop = 0;
+      const navbar = document.getElementById("navbar");
+
+      window.addEventListener("scroll", function () {
+        const scrollTop =
+          window.pageYOffset || document.documentElement.scrollTop;
+
+        if (scrollTop > lastScrollTop) {
+          // Rolando para baixo → esconde a navbar
+          navbar.style.top = "-105px";
+        } else {
+          // Rolando para cima → mostra a navbar
+          navbar.style.top = "0";
+        }
+
+        lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; // evita valores negativos
+      });
+    </script>
     {% block content %}{% endblock %}
   </body>
 </html>

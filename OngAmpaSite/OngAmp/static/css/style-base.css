@@ -1,18 +1,17 @@
 /* style-base.css */
 
-/* Importa Poppins (se quiser evitar import via CSS, adicione o <link> do Google Fonts no head do base.html) */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+/* Importa Poppins */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap");
 
- :root{
-  --primary: #2daae4;
+:root {
+  --primary: #0049af;
   --accent: #a8c7e2;
   --text: #000000;
   --btn-bg: #ffffff;
   --btn-hover: #bdbdbd;
-} 
-.primeira-div{
-  flex-direction: column;
-  display: flex;
+}
+body {
+  padding-top: 100px; /* ajuste conforme a altura do header */
 }
 /* Reset / base */
 * {
@@ -20,91 +19,119 @@
   margin: 0;
   padding: 0;
   font-family: "Poppins", sans-serif;
-} 
- html, body {
+}
+
+html,
+body {
   height: 100%;
   background: #ffffff;
   color: var(--text);
 }
-
-
+main {
+  padding-top: 0px;
+}
+.gradient-background {
+  height: 600px;
+  background-image: linear-gradient(to right, #0049af, #a8c7e2);
+}
+.container-size {
+  display: flex;
+  padding-left: 360px;
+  padding-right: 360px;
+  padding-top: 48px;
+}
+.left-content {
+  width: 48%;
+}
+.right-content {
+  width: 48%;
+}
+.right-content img {
+  width: 400px;
+  height: 400px;
+  border-radius: 999px;
+}
+.primary-style {
+  color: #ffffff;
+  font-size: 48px;
+  font-weight: 700;
+}
+.secondary-style {
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 200;
+}
+/* ===== HEADER ===== */
 header {
+  height: 100px;
+  position: fixed;
+  background-color: #ffffff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  top: 0;
+  left: 0;
+  width: 100%;
+  transition: top 0.7s ease;
+  z-index: 9999; /* para ficar sobre o conteúdo */
+}
+
+/* ===== CONTAINER CENTRALIZADO ===== */
+.container {
+  max-width: 1200px; /* largura máxima (como o Tailwind usa) */
+  margin: 0 auto; /* centraliza horizontalmente */
+  padding: 0.5rem 1rem; /* espaçamento interno (px-6 em Tailwind) */
+
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 20px;
-  padding: 16px 24px;
-  background-color: var(--primary);
-
-} 
-
-
-/* Container do logo e slogan */
-.container-logo {
-  display: flex;
-  align-items: center;
-  gap: 12px;
+  gap: 1.25rem; /* espaçamento entre logo e nav */
 }
+
+/* ===== LOGO ===== */
 .logo-link {
   display: flex;
   align-items: center;
+  gap: 0.5rem;
 }
 
-/* Logo (aplicar na tag <img>) */
 .logo-navbar {
-  width: 100px;      /* ajustar conforme preferir */
-  max-width: 35vw;   /* responsivo em telas pequenas */
+  width: 80px;
   height: auto;
   border-radius: 6px;
 }
-/* Slogan / texto do lado da logo */
-.slogan {
-  font-weight: 600;
-  font-size: 20px;
-  color: #fff;
-  letter-spacing: 0.2px;
-}
 
-/* Remove bullets e padding padrão */
+/* ===== NAVEGAÇÃO ===== */
 .nav-links {
   list-style: none;
   display: flex;
-  gap: 8px;
   align-items: center;
-  padding-left: 0;
+  gap: 1.5rem; /* espaço entre os links */
   margin: 0;
+  padding: 0;
 }
 
-/* Cada item como inline-block (horizontal) */
-.nav-links li {
-  display: inline-block;
-}
-
-/* Estiliza o link em si (o hover precisa estar aqui) */
 .nav-links li a {
   display: inline-block;
   padding: 8px 14px;
   font-size: 18px;
-  color: #ffffff;            /* cor padrão do link */
+  color: #000000;
   text-decoration: none;
-  transition: color 0.18s ease, background-color 0.18s ease;
   border-radius: 6px;
+  transition: color 0.18s ease, background-color 0.18s ease;
+  font-weight: 600;
 }
 
-/* Hover no <a> — muda a cor do texto ou fundo */
 .nav-links li a:hover,
 .nav-links li a:focus {
-  color: var(--primary);
-  background: rgba(255,255,255,0.9);
-  text-decoration: none;
+  color: #000000;
+  background: rgba(255, 255, 255, 0.9);
 }
 
-/* Botão de ação */
+/* ===== BOTÃO ===== */
 a > button,
 button {
   padding: 8px 14px;
-  color: #2daae4;
-  background-color: #fff;
+  color: #fff;
+  background-color: var(--primary);
   border: none;
   border-radius: 6px;
   cursor: pointer;
@@ -113,54 +140,31 @@ button {
   transition: background-color 0.15s ease, transform 0.08s ease;
 }
 
-/* Hover do botão */
 a > button:hover,
 button:hover {
-  background-color: #d3d3d3;
-  transform: translateY(-1px);
+  transform: translateY(-1px); /* opcional: mantém o leve efeito de clique */
 }
 
-/* Pequenas responsividades */
+/* ===== RESPONSIVIDADE ===== */
 @media (max-width: 900px) {
+  .container {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.75rem;
+  }
+
+  .nav-links {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem;
+  }
+
   .logo-navbar {
-    width: 100px;
+    width: 70px;
   }
-  .slogan {
-    font-size: 18px;
-  }
+
   .nav-links li a {
     font-size: 16px;
     padding: 6px 10px;
   }
-}
-
-@media (max-width: 700px) {
-  header {
-    flex-wrap: wrap;
-    row-gap: 12px;
-  }
-  .nav-links {
-    width: 100%;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 6px;
-  }
-  .container-logo {
-    width: 100%;
-    justify-content: center;
-  }
-  a > button, button {
-    margin-top: 6px;
-  }
-}
-
-/* Utilitários — caso precise garantir prioridade */
-.header-important .nav-links li a {
-  /* exemplo: se algo do Bootstrap estiver sobrescrevendo */
-  color: #fff !important;
-}
-
-/* Se algum seletor global estiver anulando: force com specificity (use com moderação) */
-.nav-links li a:hover {
-  color: var(--primary) !important;
 }
