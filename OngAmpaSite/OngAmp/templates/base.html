@@ -32,24 +32,52 @@
               <li><a href="#">Área administrativa</a></li>
             </ul>
           </nav>
-          <a href="#"><button>Adote um Pet</button></a>
+          <a class="link-btn-adote" href="#"
+            ><button class="adote-btn">Adote um Pet</button></a
+          >
         </div>
       </header>
       <main>
         <div class="gradient-background">
-
           <div class="container-size">
-            
             <div class="left-content">
               <h1 class="primary-style">Faça a diferença</h1>
               <h1 class="primary-style">sem sair de casa!</h1>
-              <p class="secondary-style">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Perferendis labore voluptatum quae praesentium asperiores itaque quisquam laboriosam repellat. Odio assumenda eligendi eius non. Aperiam rerum ex molestiae a quaerat iure?</p>
+              <p class="secondary-style">
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                Perferendis labore voluptatum quae praesentium asperiores itaque
+                quisquam laboriosam repellat. Odio assumenda eligendi eius non.
+                Aperiam rerum ex molestiae a quaerat iure?
+              </p>
             </div>
             <div class="right-content">
-              <img src="https://preview.redd.it/make-this-picture-of-my-dog-look-like-the-dog-accepting-its-v0-eopk8hj75ipe1.jpg?width=640&crop=smart&auto=webp&s=ea804c09fca8f4348327af2b05b36014b44c799e" alt="">
+              <img
+                src="https://preview.redd.it/make-this-picture-of-my-dog-look-like-the-dog-accepting-its-v0-eopk8hj75ipe1.jpg?width=640&crop=smart&auto=webp&s=ea804c09fca8f4348327af2b05b36014b44c799e"
+                alt=""
+              />
             </div>
           </div>
         </div>
+
+        <section class="section-partner">
+          <div class="container-partner">
+            <h2 class="h2-partner">Nossos Parceiros</h2>
+            <div class="partner-div1">
+              <div class="carousel-partner">
+
+              </div>
+              
+              <button class="carrossel-btn left">
+                <img src="{% static 'img/next.png' %}" alt="Anterior" />
+              </button>
+              <button class="carrossel-btn right">
+                <img src="{% static 'img/next.png' %}" alt="Próximo" />
+              </button>
+            </div>
+
+          
+          </div>
+        </section>
       </main>
 
       <footer></footer>
@@ -73,6 +101,25 @@
         lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; // evita valores negativos
       });
     </script>
+    <script>
+      const carrosselContainer = document.querySelector(".carrossel-container");
+      const btnLeft = document.querySelector(".carrossel-btn.left");
+      const btnRight = document.querySelector(".carrossel-btn.right");
+
+      let deslocamento = 0;
+      const itemLargura = 224; // largura média de um item + margem
+
+      btnRight.addEventListener("click", () => {
+        deslocamento -= itemLargura;
+        carrosselContainer.style.transform = `translateX(${deslocamento}px)`;
+      });
+
+      btnLeft.addEventListener("click", () => {
+        deslocamento += itemLargura;
+        carrosselContainer.style.transform = `translateX(${deslocamento}px)`;
+      });
+    </script>
+
     {% block content %}{% endblock %}
   </body>
 </html>
