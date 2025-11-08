@@ -174,9 +174,9 @@ header {
   background-color: #ffffff;
 }
 .container-partner {
-  display: flex;
-  padding-left: 360px;
-  padding-right: 360px;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  max-width: 72rem;
 }
 .h2-partner {
   font-weight: 700;
@@ -184,4 +184,32 @@ header {
   line-height: 36px;
   text-align: center;
   margin-bottom: 32px;
+}
+.carousel-partner{
+  overflow: hidden;
+}
+.carrosel-div2{
+  transform: translate3d(-1515px, 0px, 0px);
+  margin-left: -16px;
+}
+.partner-div1{
+  position: relative;
+  width: 100%;
+}
+.carousel-btn-left{
+  display: flex;
+  align-items: center;
+  width: 16px;
+  height: 16px;
+}
+.carousel-btn-right{
+display: flex;
+  align-items: center;
+  width: 16px;
+  height: 16px;
+}
+.img-bnt-next{
+  width: 16px;
+  height: 16px;
+  pointer-events: none;
 }
