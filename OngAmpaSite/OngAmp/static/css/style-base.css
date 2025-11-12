@@ -24,7 +24,7 @@ body {
   background: #ffffff;
   color: var(--text);
   /* Garante que o padding não cause problemas com o script do navbar */
-  padding-top: 10px; 
+  padding-top: 48px; 
 }
 
 main {
@@ -122,7 +122,6 @@ header {
   display: flex;
   align-items: center;
   padding: 48px 0; /* Adicionado padding vertical */
-  padding-top: 8rem;
 }
 
 .hero-content {
@@ -146,9 +145,9 @@ header {
 
 /* CORREÇÃO: Tamanho da imagem principal (hero) restaurado */
 .hero-image img {
-  width: 400px;
-  height: 400px;
-  max-width: 100%; /* Garante responsividade */
+  width: 100%;
+  height: auto;
+  max-width: 400px; /* Garante responsividade */
   aspect-ratio: 1 / 1;
   object-fit: cover;
   border-radius: 999px;
@@ -258,7 +257,6 @@ header {
 .cards-container {
   display: flex;
   flex-direction: row; /* Garante que fiquem na horizontal */
-  flex-wrap: wrap; /* Permite quebrar a linha */
   justify-content: center; /* Centraliza os cards */
   align-items: stretch; /* Faz todos terem a mesma altura (visual) */
   gap: 20px;
@@ -319,7 +317,7 @@ header {
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   max-width: 1200px;
   margin: 0 auto;
-  gap: 40px;
+  gap: 60px;
   padding: 0 40px;
 }
 
@@ -443,8 +441,9 @@ hr.footer-divider {
   }
 
   .hero-image img {
-    width: 250px;
-    height: 250px;
+    width: 100%;      
+    max-width: 250px; 
+    height: auto;
   }
 }
 
