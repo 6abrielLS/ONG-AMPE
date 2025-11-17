@@ -6,7 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     {% block extra_css %}{% endblock %}
-    <link rel="icon" href="{% static 'img/logo-ampa.jpg' %}" type="image/jpeg">
+    <link
+      rel="icon"
+      href="{% static 'img/logo-ampa.jpg' %}"
+      type="image/jpeg"
+    />
     <link rel="stylesheet" href="{% static 'css/style-base.css' %}" />
     <title>ONG AMPA</title>
   </head>
@@ -58,7 +62,7 @@
       <section class="section-partner">
         <div class="container">
           <h2 class="section-title">Parceiros</h2>
-          
+
           <div class="parceiros-container">
             <a
               href="https://www.sitecdv.com.br"
@@ -95,10 +99,7 @@
               target="_blank"
               class="parceiro"
             >
-              <img
-                src="{% static 'img/logo-ampa.jpg' %}"
-                alt="Lounge Redes"
-              />
+              <img src="{% static 'img/logo-ampa.jpg' %}" alt="Lounge Redes" />
               <p>Lounge Redes</p>
             </a>
             <a
@@ -145,13 +146,13 @@
           <div class="section-header">
             <h2 class="section-title">Processo de adoção</h2>
             <p class="section-description">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Corporis deserunt blanditiis illum, excepturi et cumque earum
-              id, minima tempora voluptatem iste voluptatum aperiam expedita.
-              Ex, porro maxime! Quaerat, cumque sequi?
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis
+              deserunt blanditiis illum, excepturi et cumque earum id, minima
+              tempora voluptatem iste voluptatum aperiam expedita. Ex, porro
+              maxime! Quaerat, cumque sequi?
             </p>
           </div>
-          
+
           <div class="cards-container">
             <div class="adopt-card">
               <h3>Navegue pela nossa galeria</h3>
@@ -265,10 +266,7 @@
           <ul>
             <li>
               <a href="mailto:ampa.mirassol@hotmail.com">
-                <img
-                  src="{% static 'img/email.svg' %}"
-                  alt="Ícone de e-mail"
-                />
+                <img src="{% static 'img/email.svg' %}" alt="Ícone de e-mail" />
                 <span>ampa.mirassol@hotmail.com</span>
               </a>
             </li>
@@ -285,6 +283,10 @@
         </address>
       </div>
       <hr class="footer-divider" />
+      <div class="footer-copyright">
+        <p>Desenvolvido pela turma 5º ADS - UNiRP.</p>
+        <p>© 2025 ONG AMPA. Todos os direitos reservados.</p>
+      </div>
     </footer>
 
     <script>
@@ -304,54 +306,54 @@
       });
     </script>
     <script>
-        // 1. Seleciona o container
-        const sliderContainer = document.querySelector('.parceiros-container');
-        
-        // 2. Pega todos os itens originais
-        const items = Array.from(sliderContainer.children);
-        
-        // 3. Clona e anexa cada item ao final do container
-        items.forEach(item => {
-          const clone = item.cloneNode(true);
-          sliderContainer.appendChild(clone);
-        });
+      // 1. Seleciona o container
+      const sliderContainer = document.querySelector(".parceiros-container");
 
-        // 4. Define as variáveis do scroll
-        let scrollInterval;
-        let scrollSpeed = 0.5; // Ajuste a velocidade
+      // 2. Pega todos os itens originais
+      const items = Array.from(sliderContainer.children);
 
-        // 5. Calcula o ponto de "salto"
-        // (A largura total dos itens originais)
-        const scrollResetPoint = sliderContainer.scrollWidth / 2;
+      // 3. Clona e anexa cada item ao final do container
+      items.forEach((item) => {
+        const clone = item.cloneNode(true);
+        sliderContainer.appendChild(clone);
+      });
 
-        function startScroll() {
-          clearInterval(scrollInterval);
-          
-          scrollInterval = setInterval(() => {
-            // 6. Verifica se o scroll passou do ponto de reset
-            if (sliderContainer.scrollLeft >= scrollResetPoint) {
-              // 7. Se passou, "salta" de volta ao início
-              sliderContainer.scrollLeft = 0;
-            } else {
-              // 8. Se não, continua rolando
-              sliderContainer.scrollLeft += scrollSpeed;
-            }
-          }, 15); // Intervalo (mais baixo = mais suave)
-        }
+      // 4. Define as variáveis do scroll
+      let scrollInterval;
+      let scrollSpeed = 0.5; // Ajuste a velocidade
 
-        function stopScroll() {
-          clearInterval(scrollInterval);
-        }
+      // 5. Calcula o ponto de "salto"
+      // (A largura total dos itens originais)
+      const scrollResetPoint = sliderContainer.scrollWidth / 2;
 
-        // Pausa ao passar o mouse
-        sliderContainer.addEventListener('mouseenter', stopScroll);
-        
-        // Retoma ao tirar o mouse
-        sliderContainer.addEventListener('mouseleave', startScroll);
+      function startScroll() {
+        clearInterval(scrollInterval);
 
-        // Inicia o scroll
-        startScroll();
-      </script>
+        scrollInterval = setInterval(() => {
+          // 6. Verifica se o scroll passou do ponto de reset
+          if (sliderContainer.scrollLeft >= scrollResetPoint) {
+            // 7. Se passou, "salta" de volta ao início
+            sliderContainer.scrollLeft = 0;
+          } else {
+            // 8. Se não, continua rolando
+            sliderContainer.scrollLeft += scrollSpeed;
+          }
+        }, 15); // Intervalo (mais baixo = mais suave)
+      }
+
+      function stopScroll() {
+        clearInterval(scrollInterval);
+      }
+
+      // Pausa ao passar o mouse
+      sliderContainer.addEventListener("mouseenter", stopScroll);
+
+      // Retoma ao tirar o mouse
+      sliderContainer.addEventListener("mouseleave", startScroll);
+
+      // Inicia o scroll
+      startScroll();
+    </script>
     {% block content %}{% endblock %}
   </body>
 </html>

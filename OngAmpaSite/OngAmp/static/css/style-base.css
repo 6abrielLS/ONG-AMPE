@@ -23,7 +23,6 @@ body {
   height: 100%;
   background: #ffffff;
   color: var(--text);
-  /* Garante que o padding não cause problemas com o script do navbar */
   padding-top: 48px; 
 }
 
@@ -32,8 +31,6 @@ main {
 }
 
 /* ===== CONTAINER CENTRALIZADO (Global) ===== */
-/* Esta é a classe "pai" que você mencionou.
-   Ela centraliza tudo e define a largura máxima. */
 .container {
   max-width: 1200px;
   margin-left: auto;
@@ -55,18 +52,14 @@ header {
   z-index: 9999;
 }
 
-/* Este seletor aplica o flexbox APENAS ao .container
-  que está DENTRO do <header>.
-*/
 .header-container {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 1.25rem;
-  height: 100%; /* Garante que o conteúdo preencha a altura do header */
+  height: 100%; 
 }
 
-/* CORREÇÃO: Tamanho da logo do navbar restaurado */
 .logo-navbar {
   width: 80px;
   height: auto;
@@ -121,7 +114,7 @@ header {
   background-image: linear-gradient(to right, #0049af, #ffffff 90%);
   display: flex;
   align-items: center;
-  padding: 48px 0; /* Adicionado padding vertical */
+  padding: 48px 0; 
 }
 
 .hero-content {
@@ -143,11 +136,10 @@ header {
   align-items: center;
 }
 
-/* CORREÇÃO: Tamanho da imagem principal (hero) restaurado */
 .hero-image img {
   width: 100%;
   height: auto;
-  max-width: 400px; /* Garante responsividade */
+  max-width: 400px; 
   aspect-ratio: 1 / 1;
   object-fit: cover;
   border-radius: 999px;
@@ -167,7 +159,7 @@ header {
 
 /* ===== SEÇÃO PARCEIROS ===== */
 .section-partner {
-  padding: 40px 0; /* Aumentado o padding vertical */
+  padding: 40px 0; 
   background-color: #ffffff;
 }
 
@@ -178,21 +170,14 @@ header {
   text-align: center;
   margin-bottom: 32px;
 }
-
-/* CORREÇÃO: Transformado em um slider horizontal (carousel)
-  - overflow-x: auto -> Cria o scroll horizontal
-  - flex-wrap: nowrap -> Impede a quebra de linha
-  - justify-content: flex-start -> Alinha itens no começo
-  - scrollbar-width: none -> Esconde scrollbar (Firefox)
-*/
 .parceiros-container {
   display: flex;
   overflow-x: auto;
   flex-wrap: nowrap;
-  justify-content: flex-start; /* Alinha ao início para o scroll */
+  justify-content: flex-start; 
   align-items: flex-start;
   gap: 60px;
-  padding: 20px 10px; /* Padding para os itens não colarem nas bordas */
+  padding: 20px 10px; 
   scrollbar-width: none; /* Para Firefox */
 }
 
@@ -206,7 +191,7 @@ header {
   text-decoration: none;
   color: #333;
   transition: transform 0.2s ease;
-  flex-shrink: 0; /* Impede que os itens encolham */
+  flex-shrink: 0; 
 }
 
 .parceiro:hover {
@@ -214,7 +199,6 @@ header {
   color: var(--primary);
 }
 
-/* CORREÇÃO: Tamanho das imagens dos parceiros restaurado */
 .parceiro img {
   width: 90px;
   height: 90px;
@@ -231,17 +215,13 @@ header {
 /* ===== SEÇÃO PROCESSO DE ADOÇÃO ===== */
 .section-adopt-process {
   padding-top: 16px;
-  padding-bottom: 60px; /* Adicionado padding-bottom */
+  padding-bottom: 60px; 
 }
-
 .section-header {
-  /* SUGESTÃO: Substituído padding fixo por max-width
-    para ser responsivo.
-  */
   max-width: 800px;
   margin: 0 auto 4rem auto;
   text-align: center;
-  padding: 0 1rem; /* Padding lateral para telas pequenas */
+  padding: 0 1rem; 
 }
 
 .section-description {
@@ -249,16 +229,11 @@ header {
   color: #000000;
 }
 
-/* CORREÇÃO: Cards alinhados horizontalmente e centralizados
-  - flex-direction: row -> Garante alinhamento horizontal
-  - flex-wrap: wrap -> Permite quebra de linha em telas menores
-  - justify-content: center -> Centraliza os cards
-*/
 .cards-container {
   display: flex;
-  flex-direction: row; /* Garante que fiquem na horizontal */
-  justify-content: center; /* Centraliza os cards */
-  align-items: stretch; /* Faz todos terem a mesma altura (visual) */
+  flex-direction: row; 
+  justify-content: center; 
+  align-items: stretch; 
   gap: 20px;
   margin-top: 40px;
 }
@@ -270,12 +245,12 @@ header {
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   width: 300px;
   min-height: 250px;
-  max-height: 250px; /* Mantido do original */
+  max-height: 250px; 
   padding: 20px;
   text-align: center;
-  display: flex; /* Adicionado para alinhar conteúdo interno */
-  flex-direction: column; /* Alinha conteúdo interno verticalmente */
-  align-items: center; /* Centraliza conteúdo interno */
+  display: flex; 
+  flex-direction: column; 
+  align-items: center; 
 }
 
 .adopt-card h3 {
@@ -290,8 +265,8 @@ header {
   line-height: 1.5;
 }
 
-/* CORREÇÃO: Tamanho dos ícones dos cards restaurado */
-.adopt-card .card-icon { /* Seletor mais específico */
+/* ícones dos cards */
+.adopt-card .card-icon { 
   width: 55px;
   height: 55px;
   margin-bottom: 15px;
@@ -308,7 +283,7 @@ header {
 .footer {
   background: #2daae4;
   color: #000;
-  padding: 40px 0 0 0; /* Padding-bottom será dado pelo <hr> */
+  padding: 40px 0 0 0; 
   font-size: 14px;
 }
 
@@ -321,7 +296,7 @@ header {
   padding: 0 40px;
 }
 
-/* CORREÇÃO: Tamanhos das imagens do footer restaurados */
+/* Imagens do footer */
 .footer-brand img {
   width: 60px;
   height: auto;
@@ -399,12 +374,29 @@ header {
 /* Divisor <hr> semântico */
 hr.footer-divider {
   border: 0;
-  border-top: 1px solid #000;
+  border-top: 1px solid #ffffff;
   max-width: 1200px;
-  margin: 32px auto 40px auto; /* Centraliza e dá espaço */
+  margin: 32px auto 40px auto; 
+}
+.footer-divider p {
+  font-size: 14px;
+  align-items: center;
+  margin: 32px auto 40px auto; 
+}
+/* ===== COPYRIGHT ===== */
+.footer-copyright {
+  text-align: center; 
+  padding-bottom: 30px; 
+  font-size: 14px;
+  color: #000; 
 }
 
-/* ===== RESPONSIVIDADE (Mantida) ===== */
+.footer-copyright p {
+  margin: 4px 0; 
+}
+
+
+/* ===== RESPONSIVIDADE  ===== */
 @media (max-width: 900px) {
   .header-container {
     flex-wrap: wrap;
