@@ -2,9 +2,7 @@ from django.db import models
 from .validators import validar_imagem
 from django.core.validators import RegexValidator
 
-# -----------------------------
-#           PET
-# -----------------------------
+
 class Pet(models.Model):
 
     class Sexo(models.TextChoices):
@@ -91,9 +89,6 @@ class Pet(models.Model):
         return f"{self.nome} ({self.get_categoria_pet_display()})"
 
 
-# -----------------------------
-#        ADOTANTE
-# -----------------------------
 class Adotante(models.Model):
     nome = models.CharField(max_length=30)
     cpf = models.CharField(
@@ -111,9 +106,6 @@ class Adotante(models.Model):
         return f"{self.nome} - {self.cpf}"
 
 
-# -----------------------------
-#       VOLUNTÁRIOS
-# -----------------------------
 class Voluntario(models.Model):
     nome = models.CharField(max_length=30)
 
@@ -121,9 +113,6 @@ class Voluntario(models.Model):
         return self.nome
 
 
-# -----------------------------
-#          ADOÇÃO
-# -----------------------------
 class Adocao(models.Model):
     pet = models.ForeignKey(
         Pet,
