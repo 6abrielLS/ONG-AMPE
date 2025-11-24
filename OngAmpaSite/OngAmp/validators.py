@@ -1,6 +1,7 @@
 import os
 from django.core.exceptions import ValidationError
 
+
 def validar_imagem(foto):
     # 1. Tamanho máximo (ex.: 5 MB)
     max_size = 5 * 1024 * 1024

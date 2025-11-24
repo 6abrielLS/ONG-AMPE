@@ -1,11 +1,154 @@
-{% extends "base.html" %}
-{% load static %}
+{% extends "base.html" %} {% load static %} {% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/style.css' %}" />
+{% endblock %} {% block content %}
 
-{% block extra_css %}
-<link rel="stylesheet" href="{% static 'css/style.css' %}">
+<main>
+  <section class="hero">
+    <div class="container hero-content">
+      <div class="hero-text">
+        <h1 class="hero-title">Faça a diferença</h1>
+        <h1 class="hero-title">sem sair de casa!</h1>
+        <p class="hero-description">
+          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Perferendis
+          labore voluptatum quae praesentium asperiores itaque quisquam
+          laboriosam repellat. Odio assumenda eligendi eius non. Aperiam rerum
+          ex molestiae a quaerat iure?
+        </p>
+      </div>
+      <div class="hero-image">
+        <img
+          src="https://preview.redd.it/make-this-picture-of-my-dog-look-like-the-dog-accepting-its-v0-eopk8hj75ipe1.jpg?width=640&crop=smart&auto=webp&s=ea804c09fca8f4348327af2b05b36014b44c799e"
+          alt=""
+        />
+      </div>
+    </div>
+  </section>
+
+  <section class="section-partner">
+    <div class="container">
+      <h2 class="section-title">Parceiros</h2>
+
+      <div class="parceiros-container">
+        <a href="https://www.sitecdv.com.br" target="_blank" class="parceiro">
+          <img src="{% static 'img/logo-ampa.jpg' %}" alt="CDV" />
+          <p>CDV</p>
+        </a>
+        <a
+          href="https://www.mayarapereira.com.br"
+          target="_blank"
+          class="parceiro"
+        >
+          <img
+            src="{% static 'img/logo-ampa.jpg' %}"
+            alt="M.V. Mayara Pereira"
+          />
+          <p>M.V. Mayara Pereira</p>
+        </a>
+        <a
+          href="https://www.formulanatural.com.br"
+          target="_blank"
+          class="parceiro"
+        >
+          <img src="{% static 'img/logo-ampa.jpg' %}" alt="Fórmula Natural" />
+          <p>Fórmula Natural</p>
+        </a>
+        <a
+          href="https://www.loungeredes.com.br"
+          target="_blank"
+          class="parceiro"
+        >
+          <img src="{% static 'img/logo-ampa.jpg' %}" alt="Lounge Redes" />
+          <p>Lounge Redes</p>
+        </a>
+        <a href="https://www.arielle.com.br" target="_blank" class="parceiro">
+          <img
+            src="{% static 'img/logo-ampa.jpg' %}"
+            alt="M.V. Arielle Silvério"
+          />
+          <p>M.V. Arielle Silvério</p>
+        </a>
+        <a href="https://www.petseven.com.br" target="_blank" class="parceiro">
+          <img src="{% static 'img/logo-ampa.jpg' %}" alt="Pet Seven" />
+          <p>Pet Seven</p>
+        </a>
+        <a href="https://www.petseven.com.br" target="_blank" class="parceiro">
+          <img src="{% static 'img/logo-ampa.jpg' %}" alt="Pet Seven" />
+          <p>Pet Seven</p>
+        </a>
+        <a href="https://www.petseven.com.br" target="_blank" class="parceiro">
+          <img src="{% static 'img/logo-ampa.jpg' %}" alt="Pet Seven" />
+          <p>Pet Seven</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-adopt-process">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Processo de adoção</h2>
+        <p class="section-description">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis
+          deserunt blanditiis illum, excepturi et cumque earum id, minima
+          tempora voluptatem iste voluptatum aperiam expedita. Ex, porro maxime!
+          Quaerat, cumque sequi?
+        </p>
+      </div>
+
+      <div class="cards-container">
+        <div class="adopt-card">
+          <h3>Navegue pela nossa galeria</h3>
+          <img src="{% static 'img/lupa.png' %}" class="card-icon" alt="logo" />
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Id,
+            exercitationem, iste quis pariatur reprehenderit error modi ipsa,
+            recusandae dolores perspiciatis fugit
+          </p>
+        </div>
+        <div class="adopt-card">
+          <h3>Veja o perfil do pet</h3>
+          <img
+            src="{% static 'img/cachorro.png' %}"
+            class="card-icon"
+            alt="logo"
+          />
+          <p>
+            É importante checar a descrição do animal para saber de sua
+            situação, de onde veio e se possui necessidades especiais!
+          </p>
+        </div>
+        <div class="adopt-card">
+          <h3>Preeencha o formulário</h3>
+          <img
+            src="{% static 'img/cachorro.png' %}"
+            class="card-icon"
+            alt="logo"
+          />
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Id,
+            exercitationem, iste quis pariatur reprehenderit error modi ipsa,
+            recusandae dolores perspiciatis fugit
+          </p>
+        </div>
+        <div class="adopt-card">
+          <h3 class="card-h3">Adote e ame!</h3>
+          <img
+            src="{% static 'img/cachorro.png' %}"
+            class="card-icon"
+            alt="logo"
+          />
+          <p class="card-paragrafo">
+            Após a aprovação, finalize a adoção e comece uma nova história de
+            amor com seu novo amigo de 4 patas!
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+{% endblock %} {% block scripts %}
+
+<script src="{% static 'js/index.js' %}"></script>
+
 {% endblock %}
-
-{% block content %}
-{% endblock %}
-
-

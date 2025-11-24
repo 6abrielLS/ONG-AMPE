@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     {% block extra_css %}{% endblock %}
+
     <link
       rel="icon"
       href="{% static 'img/logo-ampa.jpg' %}"
@@ -17,7 +18,7 @@
   <body>
     <header id="navbar">
       <div class="container header-container">
-        <a href="#" class="logo-link">
+        <a href="{% url 'index' %}" class="logo-link">
           <img
             src="{% static 'img/logo-ampa.jpg' %}"
             class="logo-navbar"
@@ -27,192 +28,30 @@
 
         <nav>
           <ul class="nav-links">
-            <li><a href="#">Início</a></li>
-            <li><a href="#">Sobre nós</a></li>
-            <li><a href="#">Contato</a></li>
-            <li><a href="#">Área administrativa</a></li>
+            <li><a href="{% url 'index' %}">Início</a></li>
+            <li><a href="{% url 'sobre' %}">Sobre nós</a></li>
+            <li><a href="{% url 'contato' %}">Contato</a></li>
+            <li><a href="{% url 'transparencia' %}">Transparência</a></li>
+
+            {% if user.is_staff %}
+            <li>
+              <a href="/admin" style="color: red; font-weight: bold"
+                >Área administrativa</a
+              >
+            </li>
+            {% endif %}
           </ul>
         </nav>
         <a href="#" class="adote-btn">Adote um Pet</a>
       </div>
     </header>
 
-    <main>
-      <section class="hero">
-        <div class="container hero-content">
-          <div class="hero-text">
-            <h1 class="hero-title">Faça a diferença</h1>
-            <h1 class="hero-title">sem sair de casa!</h1>
-            <p class="hero-description">
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-              Perferendis labore voluptatum quae praesentium asperiores itaque
-              quisquam laboriosam repellat. Odio assumenda eligendi eius non.
-              Aperiam rerum ex molestiae a quaerat iure?
-            </p>
-          </div>
-          <div class="hero-image">
-            <img
-              src="https://preview.redd.it/make-this-picture-of-my-dog-look-like-the-dog-accepting-its-v0-eopk8hj75ipe1.jpg?width=640&crop=smart&auto=webp&s=ea804c09fca8f4348327af2b05b36014b44c799e"
-              alt=""
-            />
-          </div>
-        </div>
-      </section>
-
-      <section class="section-partner">
-        <div class="container">
-          <h2 class="section-title">Parceiros</h2>
-
-          <div class="parceiros-container">
-            <a
-              href="https://www.sitecdv.com.br"
-              target="_blank"
-              class="parceiro"
-            >
-              <img src="{% static 'img/logo-ampa.jpg' %}" alt="CDV" />
-              <p>CDV</p>
-            </a>
-            <a
-              href="https://www.mayarapereira.com.br"
-              target="_blank"
-              class="parceiro"
-            >
-              <img
-                src="{% static 'img/logo-ampa.jpg' %}"
-                alt="M.V. Mayara Pereira"
-              />
-              <p>M.V. Mayara Pereira</p>
-            </a>
-            <a
-              href="https://www.formulanatural.com.br"
-              target="_blank"
-              class="parceiro"
-            >
-              <img
-                src="{% static 'img/logo-ampa.jpg' %}"
-                alt="Fórmula Natural"
-              />
-              <p>Fórmula Natural</p>
-            </a>
-            <a
-              href="https://www.loungeredes.com.br"
-              target="_blank"
-              class="parceiro"
-            >
-              <img src="{% static 'img/logo-ampa.jpg' %}" alt="Lounge Redes" />
-              <p>Lounge Redes</p>
-            </a>
-            <a
-              href="https://www.arielle.com.br"
-              target="_blank"
-              class="parceiro"
-            >
-              <img
-                src="{% static 'img/logo-ampa.jpg' %}"
-                alt="M.V. Arielle Silvério"
-              />
-              <p>M.V. Arielle Silvério</p>
-            </a>
-            <a
-              href="https://www.petseven.com.br"
-              target="_blank"
-              class="parceiro"
-            >
-              <img src="{% static 'img/logo-ampa.jpg' %}" alt="Pet Seven" />
-              <p>Pet Seven</p>
-            </a>
-            <a
-              href="https://www.petseven.com.br"
-              target="_blank"
-              class="parceiro"
-            >
-              <img src="{% static 'img/logo-ampa.jpg' %}" alt="Pet Seven" />
-              <p>Pet Seven</p>
-            </a>
-            <a
-              href="https://www.petseven.com.br"
-              target="_blank"
-              class="parceiro"
-            >
-              <img src="{% static 'img/logo-ampa.jpg' %}" alt="Pet Seven" />
-              <p>Pet Seven</p>
-            </a>
-          </div>
-        </div>
-      </section>
-
-      <section class="section-adopt-process">
-        <div class="container">
-          <div class="section-header">
-            <h2 class="section-title">Processo de adoção</h2>
-            <p class="section-description">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis
-              deserunt blanditiis illum, excepturi et cumque earum id, minima
-              tempora voluptatem iste voluptatum aperiam expedita. Ex, porro
-              maxime! Quaerat, cumque sequi?
-            </p>
-          </div>
-
-          <div class="cards-container">
-            <div class="adopt-card">
-              <h3>Navegue pela nossa galeria</h3>
-              <img
-                src="{% static 'img/lupa.png' %}"
-                class="card-icon"
-                alt="logo"
-              />
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Id,
-                exercitationem, iste quis pariatur reprehenderit error modi
-                ipsa, recusandae dolores perspiciatis fugit
-              </p>
-            </div>
-            <div class="adopt-card">
-              <h3>Veja o perfil do pet</h3>
-              <img
-                src="{% static 'img/cachorro.png' %}"
-                class="card-icon"
-                alt="logo"
-              />
-              <p>
-                É importante checar a descrição do animal para saber de sua
-                situação, de onde veio e se possui necessidades especiais!
-              </p>
-            </div>
-            <div class="adopt-card">
-              <h3>Preeencha o formulário</h3>
-              <img
-                src="{% static 'img/cachorro.png' %}"
-                class="card-icon"
-                alt="logo"
-              />
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Id,
-                exercitationem, iste quis pariatur reprehenderit error modi
-                ipsa, recusandae dolores perspiciatis fugit
-              </p>
-            </div>
-            <div class="adopt-card">
-              <h3 class="card-h3">Adote e ame!</h3>
-              <img
-                src="{% static 'img/cachorro.png' %}"
-                class="card-icon"
-                alt="logo"
-              />
-              <p class="card-paragrafo">
-                Após a aprovação, finalize a adoção e comece uma nova história
-                de amor com seu novo amigo de 4 patas!
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-    </main>
+    <main>{% block content %} {% endblock %}</main>
 
     <footer class="footer">
       <div class="footer-container">
         <section class="footer-about">
-          <a href="{% url 'home' %}" class="footer-brand">
+          <a href="{% url 'index' %}" class="footer-brand">
             <img
               src="{% static 'img/logo-ampa.jpg' %}"
               alt="Logo da ONG AMPA"
@@ -229,7 +68,7 @@
         <nav class="footer-nav" aria-label="Links rápidos">
           <h3>Links rápidos</h3>
           <ul>
-            <li><a href="#">Início</a></li>
+            <li><a href="{% url 'index' %}">Início</a></li>
             <li><a href="#">Sobre nós</a></li>
             <li><a href="#">Adote um Pet</a></li>
           </ul>
@@ -237,45 +76,24 @@
 
         <address class="footer-contact">
           <h3>Contato</h3>
-
           <div class="footer-social">
-            <a
-              href="https://www.facebook.com/ampa.mirassol"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Facebook da ONG AMPA"
-            >
-              <img
-                src="{% static 'img/facebook.svg' %}"
-                alt="Ícone do Facebook"
-              />
+            <a href="https://www.facebook.com/ampa.mirassol" target="_blank">
+              <img src="{% static 'img/facebook.svg' %}" alt="Facebook" />
             </a>
-            <a
-              href="https://www.instagram.com/ampa.mirassol/"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Instagram da ONG AMPA"
-            >
-              <img
-                src="{% static 'img/instagram.svg' %}"
-                alt="Ícone do Instagram"
-              />
+            <a href="https://www.instagram.com/ampa.mirassol/" target="_blank">
+              <img src="{% static 'img/instagram.svg' %}" alt="Instagram" />
             </a>
           </div>
-
           <ul>
             <li>
               <a href="mailto:ampa.mirassol@hotmail.com">
-                <img src="{% static 'img/email.svg' %}" alt="Ícone de e-mail" />
+                <img src="{% static 'img/email.svg' %}" alt="E-mail" />
                 <span>ampa.mirassol@hotmail.com</span>
               </a>
             </li>
             <li>
               <a href="#">
-                <img
-                  src="{% static 'img/location.svg' %}"
-                  alt="Ícone de localização"
-                />
+                <img src="{% static 'img/location.svg' %}" alt="Localização" />
                 <span>Mirassol - SP</span>
               </a>
             </li>
@@ -288,72 +106,8 @@
         <p>© 2025 ONG AMPA. Todos os direitos reservados.</p>
       </div>
     </footer>
+    <script src="{% static 'js/scripts.js' %}"></script>
 
-    <script>
-      let lastScrollTop = 0;
-      const navbar = document.getElementById("navbar");
-
-      window.addEventListener("scroll", function () {
-        const scrollTop =
-          window.pageYOffset || document.documentElement.scrollTop;
-
-        if (scrollTop > lastScrollTop) {
-          navbar.style.top = "-105px";
-        } else {
-          navbar.style.top = "0";
-        }
-        lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
-      });
-    </script>
-    <script>
-      // 1. Seleciona o container
-      const sliderContainer = document.querySelector(".parceiros-container");
-
-      // 2. Pega todos os itens originais
-      const items = Array.from(sliderContainer.children);
-
-      // 3. Clona e anexa cada item ao final do container
-      items.forEach((item) => {
-        const clone = item.cloneNode(true);
-        sliderContainer.appendChild(clone);
-      });
-
-      // 4. Define as variáveis do scroll
-      let scrollInterval;
-      let scrollSpeed = 0.5; // Ajuste a velocidade
-
-      // 5. Calcula o ponto de "salto"
-      // (A largura total dos itens originais)
-      const scrollResetPoint = sliderContainer.scrollWidth / 2;
-
-      function startScroll() {
-        clearInterval(scrollInterval);
-
-        scrollInterval = setInterval(() => {
-          // 6. Verifica se o scroll passou do ponto de reset
-          if (sliderContainer.scrollLeft >= scrollResetPoint) {
-            // 7. Se passou, "salta" de volta ao início
-            sliderContainer.scrollLeft = 0;
-          } else {
-            // 8. Se não, continua rolando
-            sliderContainer.scrollLeft += scrollSpeed;
-          }
-        }, 15); // Intervalo (mais baixo = mais suave)
-      }
-
-      function stopScroll() {
-        clearInterval(scrollInterval);
-      }
-
-      // Pausa ao passar o mouse
-      sliderContainer.addEventListener("mouseenter", stopScroll);
-
-      // Retoma ao tirar o mouse
-      sliderContainer.addEventListener("mouseleave", startScroll);
-
-      // Inicia o scroll
-      startScroll();
-    </script>
-    {% block content %}{% endblock %}
+    {% block scripts %}{% endblock %}
   </body>
 </html>

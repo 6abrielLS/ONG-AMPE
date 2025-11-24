@@ -170,6 +170,11 @@ header {
   text-align: center;
   margin-bottom: 32px;
 }
+.parceiros-container > * {
+    flex-shrink: 0;
+    width: auto;
+}
+
 .parceiros-container {
   display: flex;
   overflow-x: auto;
