@@ -1,8 +1,11 @@
-{% extends 'base.html' %}
+{% extends 'base.html' %} {% load static %} {% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/style-sobre.css' %}" />
+{% endblock %} {% block content %}
+<main>
+  <div class="container">
+    <h1 class="titulo-sobre">Quem Somos</h1>
 
-{% block content %}
-
-    <h1>Aqui começa a página Sobre Nós</h1>
-    <p>Texto da página...</p>
-
+    <p class="texto-historia">A ONG AMPA nasceu em 2010 com o objetivo de...</p>
+  </div>
+</main>
 {% endblock %}

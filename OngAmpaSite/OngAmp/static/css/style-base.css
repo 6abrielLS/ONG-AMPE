@@ -4,7 +4,7 @@
 
 :root {
   --primary: #0049af;
-  --accent: #a8c7e2;
+  --accent: #2daae4;
   --text: #000000;
   --btn-bg: #ffffff;
   --btn-hover: #bdbdbd;
@@ -32,7 +32,7 @@ main {
 
 /* ===== CONTAINER CENTRALIZADO (Global) ===== */
 .container {
-  max-width: 1200px;
+  max-width: 1360px;
   margin-left: auto;
   margin-right: auto;
   padding-left: 1rem;  /* 16px */
@@ -61,7 +61,7 @@ header {
 }
 
 .logo-navbar {
-  width: 80px;
+  width: 95px;
   height: auto;
   border-radius: 6px;
 }
@@ -275,7 +275,7 @@ header {
   width: 55px;
   height: 55px;
   margin-bottom: 15px;
-  background-color: white;
+  background-color: #ffffff;
   border-radius: 50%;
   padding: 10px;
 }
@@ -286,7 +286,7 @@ header {
 
 /* ===== FOOTER ===== */
 .footer {
-  background: #2daae4;
+  background: var(--accent);
   color: #000;
   padding: 40px 0 0 0; 
   font-size: 14px;
@@ -295,7 +295,7 @@ header {
 .footer-container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  max-width: 1200px;
+  max-width: 1360px;
   margin: 0 auto;
   gap: 60px;
   padding: 0 40px;
@@ -303,9 +303,8 @@ header {
 
 /* Imagens do footer */
 .footer-brand img {
-  width: 60px;
+  width: 66px;
   height: auto;
-  border-radius: 8px;
 }
 
 .footer-brand {
@@ -380,7 +379,7 @@ header {
 hr.footer-divider {
   border: 0;
   border-top: 1px solid #ffffff;
-  max-width: 1200px;
+  max-width: 1360px;
   margin: 32px auto 40px auto; 
 }
 .footer-divider p {
