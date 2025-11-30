@@ -2,15 +2,67 @@
 {% load static %}
 
 {% block extra_css %}
-    <link rel="stylesheet" href="{% static 'css/style-transp.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style-transp.css' %}" />
 {% endblock %}
 
 {% block content %}
-    <div class="container">
-        <h1 class="titulo-sobre">Transparencia</h1>
-        
-        <p class="texto-historia">
-            A ONG AMPA nasceu em 2010 com o objetivo de...
-        </p>
-    </div>
+<main class="com-padding-topo">
+    
+    <section class="transp-header">
+        <div class="container">
+            <h1>Transparência e Prestação de Contas</h1>
+            <p>A AMPA tem compromisso total com a sociedade. Veja como cada centavo doado transforma a vida dos nossos animais.</p>
+        </div>
+    </section>
+
+    <section class="destinacao-verba">
+        <div class="container">
+            <h2 class="titulo-secao">Para onde vai sua doação?</h2>
+            <p class="subtitulo-secao">Mantemos uma estrutura complexa para garantir dignidade aos resgatados.</p>
+
+            <div class="grid-destinacao">
+                <div class="card-visual">
+                    <div class="icon-circle">🩺</div> <h3>Veterinário</h3>
+                    <p>Consultas, cirurgias de emergência, castrações e tratamentos contínuos.</p>
+                </div>
+
+                <div class="card-visual">
+                    <div class="icon-circle">💊</div>
+                    <h3>Medicamentos</h3>
+                    <p>Antibióticos, vacinas anuais, vermífugos e remédios de uso diário.</p>
+                </div>
+
+                <div class="card-visual">
+                    <div class="icon-circle">🍖</div>
+                    <h3>Alimentação</h3>
+                    <p>Toneladas de ração de qualidade todos os meses para cães e gatos.</p>
+                </div>
+
+                <div class="card-visual">
+                    <div class="icon-circle">✨</div>
+                    <h3>Limpeza</h3>
+                    <p>Produtos específicos para manter os canis higienizados e livres de doenças.</p>
+                </div>
+
+                <div class="card-visual">
+                    <div class="icon-circle">🏠</div>
+                    <h3>Manutenção</h3>
+                    <p>Reparos nas cercas, baias, infraestrutura elétrica e hidráulica do abrigo.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="acesso-docs">
+        <div class="container">
+            <h2>Prestação de Contas</h2>
+            <p>Deseja conferir os balancetes mensais e anuais detalhados?</p>
+            
+            <a href="{% url 'prestacao_contas' %}" class="btn-grande-transp">
+                📂 Acessar Arquivo de Documentos
+            </a>
+        </div>
+    </section>
+
+</main>
 {% endblock %}

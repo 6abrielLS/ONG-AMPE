@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<main class="com-padding-topo" style="min-height: 60vh; display: flex; align-items: center;">
+    <div class="container" style="text-align: center;">
+        
+        <div style="font-size: 4rem; margin-bottom: 1rem;">🎉</div>
+        
+        <h1 style="color: var(--primary);">Cadastro Recebido com Sucesso!</h1>
+        
+        <p style="font-size: 1.2rem; color: #555; max-width: 600px; margin: 1rem auto;">
+            Obrigado pelo seu interesse em adotar. <br>
+            Nossa equipe de voluntários recebeu seus dados e entrará em contato em breve pelo WhatsApp ou E-mail.
+        </p>
+
+        <a href="{% url 'lista_pets' %}" class="adote-btn" style="margin-top: 2rem;">Voltar para a Galeria</a>
+        
+    </div>
+</main>
+{% endblock %}

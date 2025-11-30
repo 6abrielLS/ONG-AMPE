@@ -1,0 +1,103 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'css/style-prest-contas.css' %}" />
+{% endblock %}
+
+{% block content %}
+<main class="com-padding-topo">
+    <div class="container">
+        
+        <div class="header-simples">
+            <a href="{% url 'transparencia' %}" class="btn-voltar">&larr; Voltar</a>
+            <h1>Acervo de Prestação de Contas</h1>
+        </div>
+
+        <div class="grid-arquivos">
+            
+            <div class="coluna-docs">
+                <div class="titulo-coluna">
+                    <span class="icon-col">📅</span>
+                    <h3>Mensais</h3>
+                </div>
+
+                <form method="GET" action="." class="filtro-box">
+                    <div class="filtro-grid">
+                        <select name="ano" class="input-filtro">
+                            <option value="">Selecione o Ano</option> 
+                            {% for data in anos_disponiveis %}
+                                <option value="{{ data.year }}" {% if data.year|stringformat:"i" == ano_selecionado %}selected{% endif %}>
+                                    {{ data.year }}
+                                </option>
+                            {% endfor %}
+                        </select>
+
+                        <select name="mes" class="input-filtro">
+                            <option value="">Todos os mêses</option>
+                            <option value="1" {% if mes_selecionado == '1' %}selected{% endif %}>Janeiro</option>
+                            <option value="2" {% if mes_selecionado == '2' %}selected{% endif %}>Fevereiro</option>
+                            <option value="3" {% if mes_selecionado == '3' %}selected{% endif %}>Março</option>
+                            <option value="3" {% if mes_selecionado == '4' %}selected{% endif %}>Abril</option>
+                            <option value="3" {% if mes_selecionado == '5' %}selected{% endif %}>Maio</option>
+                            <option value="3" {% if mes_selecionado == '6' %}selected{% endif %}>Junho</option>
+                            <option value="3" {% if mes_selecionado == '7' %}selected{% endif %}>Julho</option>
+                            <option value="3" {% if mes_selecionado == '8' %}selected{% endif %}>Agosto</option>
+                            <option value="3" {% if mes_selecionado == '9' %}selected{% endif %}>Setembro</option>
+                            <option value="3" {% if mes_selecionado == '10' %}selected{% endif %}>Outubro</option>
+                            <option value="3" {% if mes_selecionado == '11' %}selected{% endif %}>Novembro</option>
+                            <option value="12" {% if mes_selecionado == '12' %}selected{% endif %}>Dezembro</option>
+                        </select>
+
+                        <button type="submit" class="btn-filtrar">Filtrar</button>
+                    </div>
+                </form>
+
+                {% if docs_mensais %}
+                    <ul class="lista-clean">
+                        {% for doc in docs_mensais %}
+                        <li>
+                            <a href="{{ doc.arquivo.url }}" target="_blank" class="link-doc">
+                                <div class="doc-detalhes">
+                                    <strong>{{ doc.titulo }}</strong>
+                                    <small>{{ doc.data_publicacao|date:"F / Y"|title }}</small>
+                                </div>
+                                <span class="seta-download">⬇</span>
+                            </a>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                {% else %}
+                    <p class="vazio">Nenhum documento encontrado para este período.</p>
+                {% endif %}
+            </div>
+
+            <div class="coluna-docs">
+                <div class="titulo-coluna">
+                    <span class="icon-col">📈</span>
+                    <h3>Anuais (Balanço)</h3>
+                </div>
+
+                {% if docs_anuais %}
+                    <ul class="lista-clean">
+                        {% for doc in docs_anuais %}
+                        <li>
+                            <a href="{{ doc.arquivo.url }}" target="_blank" class="link-doc">
+                                <div class="doc-detalhes">
+                                    <strong>{{ doc.titulo }}</strong>
+                                    <small>Exercício {{ doc.data_publicacao|date:"Y" }}</small>
+                                </div>
+                                <span class="seta-download">⬇</span>
+                            </a>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                {% else %}
+                    <p class="vazio">Nenhum balanço anual publicado.</p>
+                {% endif %}
+            </div>
+
+        </div>
+    </div>
+</main>
+{% endblock %}

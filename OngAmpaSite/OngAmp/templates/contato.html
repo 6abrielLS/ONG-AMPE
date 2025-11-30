@@ -1,16 +1,90 @@
-{% extends 'base.html' %}
-{% load static %}
-
-{% block extra_css %}
-    <link rel="stylesheet" href="{% static 'css/style-contato.css' %}">
-{% endblock %}
-
-{% block content %}
+{% extends 'base.html' %} {% load static %} {% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/style-contato.css' %}" />
+{% endblock %} {% block content %}
+<main class="com-padding-topo">
+  <section class="contato-header">
     <div class="container">
-        <h1 class="titulo-sobre">Contato</h1>
-        
-        <p class="texto-historia">
-            A ONG AMPA nasceu em 2010 com o objetivo de...
-        </p>
+      <h1>Fale com a AMPA</h1>
+      <p>Estamos prontos para te atender no nosso canal oficial.</p>
     </div>
+  </section>
+
+  <section class="contato-destaque">
+    <div class="container">
+      <div class="card-atendimento">
+        <div class="icone-atendimento">
+          <img src="{% static 'img/instagram.svg' %}" alt="Logo Instagram" />
+        </div>
+        <h2>Atendimento Exclusivo</h2>
+        <p>
+          Para dúvidas sobre adoção, denúncias ou resgates, nosso time de
+          voluntários atende <strong>exclusivamente</strong> via Direct do
+          Instagram.
+        </p>
+
+        <a
+          href="https://www.instagram.com/ampa.mirassol/"
+          target="_blank"
+          class="btn-instagram"
+        >
+          Chamar no Instagram Agora
+        </a>
+        <p class="horario-obs">
+          <small>Respondemos geralmente em até 24h.</small>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="contato-localizacao">
+    <div class="container">
+      <div class="grid-mapa">
+        <div class="texto-mapa">
+          <h2>Como Chegar</h2>
+          <p>
+            Nosso abrigo fica localizado em uma área tranquila de Mirassol. Siga
+            as instruções abaixo para não se perder:
+          </p>
+
+          <ul class="lista-endereco">
+            <li>
+              <strong>📍 Endereço de Referência:</strong><br />
+              Lot. Res. Moreira e Guimaraes<br />
+              Mirassol - SP, 15130-000
+            </li>
+            <li>
+              <strong>🚗 Rota Passo a Passo:</strong><br />
+              1. Ao chegar na esquina da empresa <strong>Facchini</strong>, vire
+              à direita.<br />
+              2. Siga reto até avistar a próxima placa.<br />
+              3. Vire à direita novamente para entrar na estrada de terra.<br />
+              4. Você já estará na <strong>Estrada da AMPA</strong>. Siga por
+              aproximadamente <strong>800 metros</strong>.<br />
+              5. A entrada do abrigo estará à sua direita (portão
+              verde/identificado).
+            </li>
+          </ul>
+
+          <div class="aviso-visita">
+            <p>
+              <strong>Importante:</strong> Para garantir a segurança e rotina
+              dos animais, visitas devem ser agendadas previamente pelo
+              Instagram.
+            </p>
+          </div>
+        </div>
+        <div class="imagem-mapa">
+          <img
+            src="{% static 'img/mapa-rota.jpeg' %}"
+            alt="Mapa ilustrativo mostrando a rota da Facchini até a AMPA"
+          />
+          <span class="legenda-mapa"
+            >Rota ilustrativa: Da Facchini até a entrada da AMPA (Linha
+            Vermelha)</span
+          >
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
 {% endblock %}

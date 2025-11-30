@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 """
 
 from pathlib import Path
-
+import os
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'jazzmin',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -106,28 +107,75 @@ AUTH_PASSWORD_VALIDATORS = [
 
 
 # Internationalization
-# https://docs.djangoproject.com/en/5.2/topics/i18n/
-
-LANGUAGE_CODE = 'en-us'
-
-TIME_ZONE = 'UTC'
-
+LANGUAGE_CODE = 'pt-br'  # Mudei para português para o Admin ficar traduzido!
+TIME_ZONE = 'America/Sao_Paulo' # Ajuste o fuso para o Brasil
 USE_I18N = True
-
 USE_TZ = True
 
-
 # Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/5.2/howto/static-files/
-
 STATIC_URL = 'static/'
-
 STATICFILES_DIRS = [
-    BASE_DIR / 'static',  # se você tiver uma pasta global static
+    BASE_DIR / 'static',
 ]
-STATIC_ROOT = BASE_DIR / 'staticfiles'  # onde o collectstatic vai gerar arquivos
+STATIC_ROOT = BASE_DIR / 'staticfiles'
+
+# URL para acessar os arquivos no navegador
+MEDIA_URL = '/media/'
+
+
+# Media files (Uploads) - Mantenha APENAS esta definição
+MEDIA_URL = '/media/'
+MEDIA_ROOT = BASE_DIR / 'media'
+
+# Configuração de E-mail (Desenvolvimento)
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+DEFAULT_FROM_EMAIL = 'site@ongampa.com.br'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
+# Default primary key field type
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+# ==================================
+# CONFIGURAÇÕES DO JAZZMIN (ADMIN)
+# ==================================
+JAZZMIN_SETTINGS = {
+    "site_title": "Admin AMPA",
+    "site_header": "AMPA",
+    "site_brand": "Gestão AMPA",
+    "welcome_sign": "Bem-vindo ao Painel da ONG AMPA",
+    "copyright": "AMPA Mirassol",
+    "site_logo": "img/LogoAmpa-new.png", 
+    "login_logo": "img/LogoAmpa-new.png",
+    
+    # CSS Customizado (Certifique-se que o arquivo existe em static/css/admin-custom.css)
+    "custom_css": "css/admin-custom.css",
+    
+    "search_model": "OngAmp.Pet",
+    
+    "topmenu_links": [
+        {"name": "Ver Site", "url": "index", "permissions": ["auth.view_user"]},
+        {"app": "OngAmp"},
+    ],
+
+    "icons": {
+        "auth": "fas fa-users-cog",
+        "auth.user": "fas fa-user",
+        "auth.Group": "fas fa-users",
+        "OngAmp.Pet": "fas fa-paw",
+        "OngAmp.Adocao": "fas fa-heart",
+        "OngAmp.Adotante": "fas fa-user-friends",
+        "OngAmp.Voluntario": "fas fa-hands-helping",
+        "OngAmp.DocumentoTransparencia": "fas fa-file-invoice-dollar",
+        "OngAmp.FotoPet": "fas fa-camera",
+    },
+    
+    "order_with_respect_to": ["OngAmp", "auth"],
+    "show_ui_builder": False, # Desativei pois já configuramos o tema
+}
+
+JAZZMIN_UI_TWEAKS = {
+    "theme": "flatly",
+}

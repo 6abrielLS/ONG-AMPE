@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'css/style-adote.css' %}" />
+{% endblock %}
+
+{% block content %}
+<main class="com-padding-topo">
+    
+    <section class="adote-header">
+        <div class="container">
+            <h1>Nossos Amigos</h1>
+            <p>Eles estão esperando por um lar cheio de amor. Adote!</p>
+        </div>
+    </section>
+
+    <section class="galeria-pets">
+        <div class="container">
+            
+            <div class="grid-pets">
+                {% for pet in pets %}
+                <div class="card-pet">
+                    <div class="pet-img-wrapper">
+                        {% with capa=pet.fotos.first %}
+                            {% if capa %}
+                                <img src="{{ capa.imagem.url }}" alt="Foto de {{ pet.nome }}">
+                            {% else %}
+                                <img src="{% static 'img/sem-foto.png' %}" alt="Sem foto" class="sem-foto">
+                            {% endif %}
+                        {% endwith %}
+                        
+                        <span class="badge-sexo {{ pet.sexo }}">
+                            {% if pet.sexo == 'M' %}♂{% else %}♀{% endif %}
+                        </span>
+                    </div>
+
+                    <div class="pet-info">
+                        <h3>{{ pet.nome }}</h3>
+                        <p class="pet-desc-curta">
+                            {{ pet.get_idade_display }} • {{ pet.get_porte_display }}
+                        </p>
+                        
+                        <div class="pet-tags">
+                            <span>{{ pet.get_categoria_pet_display }}</span>
+                            {% if pet.is_castrado == 'C' %}
+                                <span class="tag-castrado">Castrado</span>
+                            {% endif %}
+                        </div>
+
+                        <a href="{% url 'detalhes_pet' pet.id %}" class="btn-detalhes">Conhecer História</a>
+                    </div>
+                </div>
+                {% empty %}
+                    <p class="vazio">Oba! No momento não temos nenhum animal aguardando adoção. 🎉</p>
+                {% endfor %}
+            </div>
+
+        </div>
+    </section>
+
+</main>
+{% endblock %}

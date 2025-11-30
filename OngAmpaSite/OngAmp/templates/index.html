@@ -1,154 +1,161 @@
 {% extends "base.html" %} {% load static %} {% block extra_css %}
-<link rel="stylesheet" href="{% static 'css/style.css' %}" />
+<link rel="stylesheet" href="{% static 'css/style-index.css' %}" />
+<link rel="stylesheet" href="{% static 'css/style-adote.css' %}" />
 {% endblock %} {% block content %}
 
-<main>
-  <section class="hero">
-    <div class="container hero-content">
-      <div class="hero-text">
-        <h1 class="hero-title">Faça a diferença</h1>
-        <h1 class="hero-title">sem sair de casa!</h1>
-        <p class="hero-description">
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Perferendis
-          labore voluptatum quae praesentium asperiores itaque quisquam
-          laboriosam repellat. Odio assumenda eligendi eius non. Aperiam rerum
-          ex molestiae a quaerat iure?
+<div class="container-banner">
+  <div class="container">
+    <img
+      src="{% static 'img/ampa-capa.jpg' %}"
+      alt="Capa da ONG AMPA"
+      class="hero-image"
+    />
+  </div>
+</div>
+<section class="section-incentivo">
+    <div class="container">
+      <div class="text-incentivo">
+        <h2>Adote um Amigo, <span class="text-blue">Transforme Vidas</span></h2>
+        <p>
+          A AMPA resgata cães e gatos em situação de risco, oferecendo tratamento, carinho e reabilitação. 
+          Ao adotar, você não salva apenas o animal escolhido, mas abre espaço em nosso abrigo para que outra vida possa ser salva das ruas.
         </p>
       </div>
-      <div class="hero-image">
-        <img
-          src="https://preview.redd.it/make-this-picture-of-my-dog-look-like-the-dog-accepting-its-v0-eopk8hj75ipe1.jpg?width=640&crop=smart&auto=webp&s=ea804c09fca8f4348327af2b05b36014b44c799e"
-          alt=""
-        />
-      </div>
     </div>
   </section>
 
-  <section class="section-partner">
-    <div class="container">
-      <h2 class="section-title">Parceiros</h2>
+<section class="section-processo-adocao">
+  <div class="container">
+    <div class="text-adopt-process">
+      <h2>Como Adotar?</h2>
+      <p>O processo é simples, seguro e focado no bem-estar do animal.</p>
+    </div>
 
-      <div class="parceiros-container">
-        <a href="https://www.sitecdv.com.br" target="_blank" class="parceiro">
-          <img src="{% static 'img/logo-ampa.jpg' %}" alt="CDV" />
-          <p>CDV</p>
-        </a>
-        <a
-          href="https://www.mayarapereira.com.br"
-          target="_blank"
-          class="parceiro"
-        >
-          <img
-            src="{% static 'img/logo-ampa.jpg' %}"
-            alt="M.V. Mayara Pereira"
-          />
-          <p>M.V. Mayara Pereira</p>
-        </a>
-        <a
-          href="https://www.formulanatural.com.br"
-          target="_blank"
-          class="parceiro"
-        >
-          <img src="{% static 'img/logo-ampa.jpg' %}" alt="Fórmula Natural" />
-          <p>Fórmula Natural</p>
-        </a>
-        <a
-          href="https://www.loungeredes.com.br"
-          target="_blank"
-          class="parceiro"
-        >
-          <img src="{% static 'img/logo-ampa.jpg' %}" alt="Lounge Redes" />
-          <p>Lounge Redes</p>
-        </a>
-        <a href="https://www.arielle.com.br" target="_blank" class="parceiro">
-          <img
-            src="{% static 'img/logo-ampa.jpg' %}"
-            alt="M.V. Arielle Silvério"
-          />
-          <p>M.V. Arielle Silvério</p>
-        </a>
-        <a href="https://www.petseven.com.br" target="_blank" class="parceiro">
-          <img src="{% static 'img/logo-ampa.jpg' %}" alt="Pet Seven" />
-          <p>Pet Seven</p>
-        </a>
-        <a href="https://www.petseven.com.br" target="_blank" class="parceiro">
-          <img src="{% static 'img/logo-ampa.jpg' %}" alt="Pet Seven" />
-          <p>Pet Seven</p>
-        </a>
-        <a href="https://www.petseven.com.br" target="_blank" class="parceiro">
-          <img src="{% static 'img/logo-ampa.jpg' %}" alt="Pet Seven" />
-          <p>Pet Seven</p>
-        </a>
+    <div class="grid-cards">
+      <div class="card-white">
+        <div class="card-icon">
+          <img src="{% static 'img/lupa-icon.png' %}" class="icon" alt="Ícone Lupa">
+        </div>
+        <h3>1. Escolha</h3>
+        <p>Navegue pela nossa galeria online ou visite o abrigo.</p>
+      </div>
+
+      <div class="card-white">
+        <div class="card-icon">
+          <img src="{% static 'img/cad-icon.png' %}" class="icon" alt="Ícone cadastro">
+        </div>
+        <h3>2. Contato</h3>
+        <p>Se canditate para adoção preenchendo o nosso formulário</p>
+      </div>
+
+      <div class="card-white">
+        <div class="card-icon">
+          <img src="{% static 'img/calendar-icon.png' %}" class="icon" alt="Ícone Calendário">
+        </div>
+        <h3>3. Visita</h3>
+        <p>Agendamos um horário para você conhecer o animal.</p>
+      </div>
+
+      <div class="card-white">
+        <div class="card-icon">
+          <img src="{% static 'img/adocao-icon.png' %}" class="icon" alt="Ícone Adoção">
+        </div>
+        <h3>4. Adoção</h3>
+        <p>Assinamos o termo e você leva seu amigo para casa!</p>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <section class="section-adopt-process">
-    <div class="container">
-      <div class="section-header">
-        <h2 class="section-title">Processo de adoção</h2>
-        <p class="section-description">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis
-          deserunt blanditiis illum, excepturi et cumque earum id, minima
-          tempora voluptatem iste voluptatum aperiam expedita. Ex, porro maxime!
-          Quaerat, cumque sequi?
-        </p>
+<section class="section-destaques">
+  <div class="container">
+    <header class="section-header-dark">
+      <h2>Eles precisam de você! </h2>
+      <p>Conheça alguns dos nossos resgatados que aguardam uma família.</p>
+    </header>
+
+    {% if pets_destaque %}
+    <div class="grid-pets">
+      {% for pet in pets_destaque %}
+      <div class="card-pet">
+        <div class="pet-img-wrapper">
+          {% with capa=pet.fotos.first %} {% if capa %}
+          <img src="{{ capa.imagem.url }}" alt="{{ pet.nome }}" />
+          {% else %}
+          <img src="{% static 'img/sem-foto.jpg' %}" alt="Sem foto" />
+          {% endif %} {% endwith %}
+
+          <span class="badge-sexo {{ pet.sexo }}">
+            {% if pet.sexo == 'M' %}♂{% else %}♀{% endif %}
+          </span>
+        </div>
+
+        <div class="pet-info">
+          <h3>{{ pet.nome }}</h3>
+          <p class="pet-desc-curta">
+            {{ pet.get_idade_display }} • {{ pet.get_porte_display }}
+          </p>
+          <a href="{% url 'detalhes_pet' pet.id %}" class="btn-detalhes"
+            >Conhecer</a
+          >
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+
+    <div class="btn-center-wrapper">
+      <a href="{% url 'lista_pets' %}" class="btn-outline-primary"
+        >Ver todos os animais &rarr;</a
+      >
+    </div>
+    {% else %}
+    <p class="text-muted" style="text-align: center; padding: 2rem">
+      Nenhum animal em destaque no momento.
+    </p>
+    {% endif %}
+  </div>
+</section>
+
+<section class="section-ajuda">
+  <div class="container">
+    <header class="section-header-dark">
+      <h2>Ajude sem adotar</h2>
+      <p>
+        Não recebemos verba pública. Sua doação mantém a ração e os remédios em
+        dia.
+      </p>
+    </header>
+
+    <div class="grid-cards-ajuda">
+      <div class="card-minimal">
+        <div class="icon-minimal">💸</div>
+        <div class="content-minimal">
+          <h3>Faça um PIX</h3>
+          <p>
+            Qualquer valor ajuda na compra de vacinas e medicamentos urgentes.
+          </p>
+          <div class="pix-box">
+            <small>Chave CNPJ:</small>
+            <strong>00.000.000/0001-00</strong>
+          </div>
+        </div>
       </div>
 
-      <div class="cards-container">
-        <div class="adopt-card">
-          <h3>Navegue pela nossa galeria</h3>
-          <img src="{% static 'img/lupa.png' %}" class="card-icon" alt="logo" />
+      <div class="card-minimal">
+        <div class="icon-minimal">🍲</div>
+        <div class="content-minimal">
+          <h3>Doe Ração</h3>
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Id,
-            exercitationem, iste quis pariatur reprehenderit error modi ipsa,
-            recusandae dolores perspiciatis fugit
+            Consumimos muito por mês. Aceitamos doações no abrigo ou pontos de
+            coleta.
           </p>
-        </div>
-        <div class="adopt-card">
-          <h3>Veja o perfil do pet</h3>
-          <img
-            src="{% static 'img/cachorro.png' %}"
-            class="card-icon"
-            alt="logo"
-          />
-          <p>
-            É importante checar a descrição do animal para saber de sua
-            situação, de onde veio e se possui necessidades especiais!
-          </p>
-        </div>
-        <div class="adopt-card">
-          <h3>Preeencha o formulário</h3>
-          <img
-            src="{% static 'img/cachorro.png' %}"
-            class="card-icon"
-            alt="logo"
-          />
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Id,
-            exercitationem, iste quis pariatur reprehenderit error modi ipsa,
-            recusandae dolores perspiciatis fugit
-          </p>
-        </div>
-        <div class="adopt-card">
-          <h3 class="card-h3">Adote e ame!</h3>
-          <img
-            src="{% static 'img/cachorro.png' %}"
-            class="card-icon"
-            alt="logo"
-          />
-          <p class="card-paragrafo">
-            Após a aprovação, finalize a adoção e comece uma nova história de
-            amor com seu novo amigo de 4 patas!
-          </p>
+          <a href="{% url 'contato' %}" class="link-arrow"
+            >Ver endereços &rarr;</a
+          >
         </div>
       </div>
     </div>
-  </section>
-</main>
-
-{% endblock %} {% block scripts %}
-
-<script src="{% static 'js/index.js' %}"></script>
+  </div>
+</section>
 
 {% endblock %}

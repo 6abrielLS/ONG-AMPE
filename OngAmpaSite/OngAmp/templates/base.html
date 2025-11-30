@@ -1,113 +1,80 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="pt-br">
-  <head>
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="{% static 'css/style-base.css' %}" />
-    
-    {% block extra_css %}
-    {% endblock %}
-    <link
-      rel="icon"
-      href="{% static 'img/LogoAmpa-new.png' %}"
-      type="image/jpeg"
-    />
     <title>ONG AMPA</title>
-  </head>
-  <body>
+    <link rel="icon" href="{% static 'img/LogoAmpa-new.png' %}" type="image/jpeg" />
+    <link rel="stylesheet" href="{% static 'css/style-base.css' %}" />
+    {% block extra_css %}{% endblock %}
+</head>
+<body>
     <header id="navbar">
-      <div class="container header-container">
-        <a href="{% url 'index' %}" class="logo-link">
-          <img
-            src="{% static 'img/LogoAmpa-new.png' %}"
-            class="logo-navbar"
-            alt="logo"
-          />
-        </a>
-
-        <nav>
-          <ul class="nav-links">
-            <li><a href="{% url 'index' %}">Início</a></li>
-            <li><a href="{% url 'sobre' %}">Sobre nós</a></li>
-            <li><a href="{% url 'contato' %}">Contato</a></li>
-            <li><a href="{% url 'transparencia' %}">Transparência</a></li>
-
-            {% if user.is_staff %}
-            <li>
-              <a href="/admin" style="color: red; font-weight: bold"
-                >Área administrativa</a
-              >
-            </li>
-            {% endif %}
-          </ul>
-        </nav>
-        <a href="#" class="adote-btn">Adote um Pet</a>
-      </div>
+        <div class="container header-container">
+            <a href="{% url 'index' %}" class="logo-link">
+                <img src="{% static 'img/LogoAmpa-new.png' %}" class="logo-navbar" alt="logo" />
+            </a>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="{% url 'index' %}">Início</a></li>
+                    <li><a href="{% url 'sobre' %}">Sobre nós</a></li>
+                    <li><a href="{% url 'contato' %}">Contato</a></li>
+                    {% if user.is_staff %}
+                    <li>
+                        <a href="/admin" style="color: #d32f2f; font-weight: bold;">Área administrativa</a>
+                    </li>
+                    {% endif %}
+                </ul>
+            </nav>
+            <a href="{% url 'lista_pets' %}" class="adote-btn">Adote um Pet</a>
+        </div>
     </header>
 
-    <main>{% block content %} {% endblock %}</main>
+    <main>
+        {% block content %} 
+        {% endblock %}
+    </main>
 
     <footer class="footer">
-      <div class="footer-container">
-        <section class="footer-about">
-          <a href="{% url 'index' %}" class="footer-brand">
-            <img
-              src="{% static 'img/LogoAmpa-new.png' %}"
-              alt="Logo da ONG AMPA"
-            />
-            <h3>ONG AMPA</h3>
-          </a>
-          <p>
-            Associação Privada sem fins econômicos e/ou políticos, cuja
-            finalidade principal é amparar e prestar assistência a animais de
-            rua na cidade de Mirassol - SP.
-          </p>
-        </section>
+        <div class="footer-container">
+            <section class="footer-about">
+                <a href="{% url 'index' %}" class="footer-brand">
+                    <img src="{% static 'img/LogoAmpa-new.png' %}" alt="Logo da ONG AMPA" />
+                    <h3>ONG AMPA</h3>
+                </a>
+                <p>Associação Privada sem fins econômicos, dedicada a amparar e prestar assistência a animais de rua na cidade de Mirassol - SP.</p>
+            </section>
+            
+            <nav class="footer-nav">
+                <h3>Links rápidos</h3>
+                <ul>
+                    <li><a href="{% url 'index' %}">Início</a></li>
+                    <li><a href="{% url 'sobre' %}">Sobre nós</a></li>
+                    <li><a href="{% url 'transparencia' %}">Transparência</a></li>
+                    <li><a href="{% url 'lista_pets' %}">Adote um Pet</a></li>
+                </ul>
+            </nav>
 
-        <nav class="footer-nav" aria-label="Links rápidos">
-          <h3>Links rápidos</h3>
-          <ul>
-            <li><a href="{% url 'index' %}">Início</a></li>
-            <li><a href="#">Sobre nós</a></li>
-            <li><a href="#">Adote um Pet</a></li>
-          </ul>
-        </nav>
-
-        <address class="footer-contact">
-          <h3>Contato</h3>
-          <div class="footer-social">
-            <a href="https://www.facebook.com/ampa.mirassol" target="_blank">
-              <img src="{% static 'img/facebook.svg' %}" alt="Facebook" />
-            </a>
-            <a href="https://www.instagram.com/ampa.mirassol/" target="_blank">
-              <img src="{% static 'img/instagram.svg' %}" alt="Instagram" />
-            </a>
-          </div>
-          <ul>
-            <li>
-              <a href="mailto:ampa.mirassol@hotmail.com">
-                <img src="{% static 'img/email.svg' %}" alt="E-mail" />
-                <span>ampa.mirassol@hotmail.com</span>
-              </a>
-            </li>
-            <li>
-              <a href="#">
-                <img src="{% static 'img/location.svg' %}" alt="Localização" />
-                <span>Mirassol - SP</span>
-              </a>
-            </li>
-          </ul>
-        </address>
-      </div>
-      <hr class="footer-divider" />
-      <div class="footer-copyright">
-        <p>Desenvolvido pela turma 5º ADS - UNiRP.</p>
-        <p>© 2025 ONG AMPA. Todos os direitos reservados.</p>
-      </div>
+            <address class="footer-contact">
+                <h3>Contato</h3>
+                <div class="footer-social">
+                    <a href="#" target="_blank"><img src="{% static 'img/facebook.svg' %}" alt="Facebook" /></a>
+                    <a href="#" target="_blank"><img src="{% static 'img/instagram.svg' %}" alt="Instagram" /></a>
+                </div>
+                <ul>
+                    <li><a href="#"><img src="{% static 'img/email.svg' %}" /><span>ampa.mirassol@hotmail.com</span></a></li>
+                    <li><a href="#"><img src="{% static 'img/location.svg' %}" /><span>Mirassol - SP</span></a></li>
+                </ul>
+            </address>
+        </div>
+        <hr class="footer-divider" />
+        <div class="footer-copyright">
+            <p>Desenvolvido pela turma 5º ADS - UNiRP.</p>
+            <p>© 2025 ONG AMPA. Todos os direitos reservados.</p>
+        </div>
     </footer>
-    <script src="{% static 'js/scripts.js' %}"></script>
-
-    {% block scripts %}{% endblock %}
-  </body>
+    {% block scripts %}
+    {% endblock %}
+</body>
 </html>

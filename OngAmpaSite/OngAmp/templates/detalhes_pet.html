@@ -1,0 +1,155 @@
+{% extends 'base.html' %} {% load static %} {% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/style-adote.css' %}" />
+{% endblock %} {% block content %}
+<main class="com-padding-topo">
+  <div class="container">
+    <a href="{% url 'lista_pets' %}" class="btn-voltar-pet"
+      >&larr; Voltar para a Galeria</a
+    >
+
+    <div class="perfil-grid">
+      <div class="perfil-fotos">
+        <div class="destaque-wrapper">
+          {% if pet.fotos.count > 1 %}
+          <button class="nav-seta seta-esq" onclick="mudarSlide(-1)">
+            &#10094;
+          </button>
+          {% endif %} {% with capa=pet.fotos.first %} {% if capa %}
+          <img
+            id="imgDestaque"
+            src="{{ capa.imagem.url }}"
+            alt="{{ pet.nome }}"
+            class="foto-grande"
+          />
+          {% else %}
+          <img
+            id="imgDestaque"
+            src="{% static 'img/sem-foto.jpg' %}"
+            alt="Sem foto"
+            class="foto-grande"
+          />
+          {% endif %} {% endwith %} {% if pet.fotos.count > 1 %}
+          <button class="nav-seta seta-dir" onclick="mudarSlide(1)">
+            &#10095;
+          </button>
+          {% endif %}
+        </div>
+
+        {% if pet.fotos.all %}
+        <div class="miniaturas-container">
+          <div class="miniaturas-grid">
+            {% for foto in pet.fotos.all %}
+            <img
+              src="{{ foto.imagem.url }}"
+              alt="Foto {{ forloop.counter }}"
+              class="miniatura {% if forloop.first %}ativa{% endif %}"
+              onclick="trocarFoto(this, {{ forloop.counter0 }})"
+            />
+            {% endfor %}
+          </div>
+        </div>
+        {% endif %}
+      </div>
+
+      <div class="perfil-info">
+        <div class="header-perfil">
+          <h1>{{ pet.nome }}</h1>
+          <div class="caracteristicas-grid">
+            <span class="badge-info">{{ pet.get_idade_display }}</span>
+            <span class="badge-info">{{ pet.get_sexo_display }}</span>
+            <span class="badge-info"> Porte: {{ pet.get_porte_display }}</span>
+            <span class="badge-info">Coloração: {{ pet.coloracao }}</span>
+            <span class="badge-info">{{ pet.get_is_castrado_display }}</span>
+          </div>
+        </div>
+
+        <div class="historia-texto box-descricao">
+          <h3>Minha História</h3>
+          <p>{{ pet.descricao|linebreaksbr }}</p>
+        </div>
+
+       <div class="box-adocao">
+         <h3>Gostou do {{ pet.nome }}? 🐾</h3>
+
+           <a href="{% url 'cadastro_adotante_pet' pet.id %}" class="btn-cadastro-site">
+                    Preencher Ficha de Adoção
+            </a>
+             <p style="margin: 1rem 0; font-weight: bold; color: #ccc;">OU</p>
+    
+                <a href="..." class="btn-instagram-grande">Falar no Instagram</a>
+                    </div>
+          <div class="aviso-visita">
+            ⚠️ <strong>Importante:</strong> Visitas ao abrigo somente com
+            horário marcado.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+{% endblock %} {% block scripts %}
+<script>
+  // Variável para saber qual foto estamos vendo agora (0, 1, 2...)
+  let indiceAtual = 0;
+
+  // Pega todas as miniaturas assim que a página carrega
+  const miniaturas = document.querySelectorAll(".miniatura");
+  const destaque = document.getElementById("imgDestaque");
+
+  // Função para clicar na miniatura
+  function trocarFoto(elemento, novoIndice) {
+    // Atualiza a imagem grande com a fonte da miniatura clicada
+    destaque.src = elemento.src;
+
+    // Atualiza o índice global
+    indiceAtual = novoIndice;
+
+    // Atualiza o visual (borda azul)
+    atualizarClasseAtiva();
+  }
+
+  // Função das Setas (Próximo / Anterior)
+  function mudarSlide(direcao) {
+    // Se não tiver miniaturas, não faz nada
+    if (miniaturas.length === 0) return;
+
+    // Calcula o novo índice
+    indiceAtual += direcao;
+
+    // Lógica do Loop Infinito:
+    // Se passou da última, volta para a primeira (0)
+    if (indiceAtual >= miniaturas.length) {
+      indiceAtual = 0;
+    }
+    // Se voltou antes da primeira, vai para a última
+    if (indiceAtual < 0) {
+      indiceAtual = miniaturas.length - 1;
+    }
+
+    // Pega a nova miniatura baseada no índice calculado
+    const novaMiniatura = miniaturas[indiceAtual];
+
+    // Atualiza a foto grande
+    destaque.src = novaMiniatura.src;
+
+    // Atualiza a borda
+    atualizarClasseAtiva();
+  }
+
+  // Função auxiliar para pintar a borda da miniatura certa
+  function atualizarClasseAtiva() {
+    // Remove a classe 'ativa' de todas
+    miniaturas.forEach((min) => min.classList.remove("ativa"));
+
+    // Adiciona na atual
+    miniaturas[indiceAtual].classList.add("ativa");
+
+    // (Opcional) Faz a barra de rolagem das miniaturas seguir a seleção
+    miniaturas[indiceAtual].scrollIntoView({
+      behavior: "smooth",
+      block: "nearest",
+      inline: "center",
+    });
+  }
+</script>
+{% endblock %}

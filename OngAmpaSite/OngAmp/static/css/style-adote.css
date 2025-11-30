@@ -1,0 +1,486 @@
+/* ===== HEADER ===== */
+.adote-header {
+    background-color: #f0f7ff;
+    padding: 3rem 0;
+    text-align: center;
+    border-bottom: 4px solid var(--accent);
+}
+
+.adote-header h1 {
+    color: var(--primary);
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+}
+
+/* ===== GRID DE PETS ===== */
+.galeria-pets {
+    padding: 4rem 0;
+    background-color: #fff;
+}
+
+.grid-pets {
+    display: grid;
+    /* Cards responsivos: mínimo de 280px */
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 2rem;
+}
+
+/* Card do Pet */
+.card-pet {
+    background: #fff;
+    border-radius: 1rem;
+    overflow: hidden; /* Para a imagem não vazar as bordas */
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+    transition: transform 0.3s ease;
+    border: 1px solid #eee;
+    display: flex;
+    flex-direction: column;
+}
+
+.card-pet:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+/* Imagem */
+.pet-img-wrapper {
+    height: 250px;
+    width: 100%;
+    position: relative;
+    background-color: #f0f0f0;
+}
+
+.pet-img-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Corta a imagem para preencher o quadrado */
+}
+
+/* Badge Sexo (Bolinha no canto) */
+.badge-sexo {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    width: 35px;
+    height: 35px;
+    background: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 1.2rem;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.badge-sexo.M { color: #2daae4; } /* Azul para Macho */
+.badge-sexo.F { color: #e91e63; } /* Rosa para Fêmea */
+
+/* Informações */
+.pet-info {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    flex: 1; /* Ocupa o resto do card */
+}
+
+.pet-info h3 {
+    color: var(--primary);
+    margin-bottom: 0.2rem;
+    font-size: 1.4rem;
+}
+
+.pet-desc-curta {
+    color: #666;
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+}
+
+.pet-tags {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    margin-bottom: 1.5rem;
+}
+
+.pet-tags span {
+    background-color: #eee;
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    color: #555;
+    font-weight: 600;
+}
+
+.tag-castrado {
+    background-color: #e8f5e9 !important;
+    color: #2e7d32 !important;
+}
+
+/* Botão */
+.btn-detalhes {
+    margin-top: auto; /* Empurra o botão para o fundo do card */
+    background-color: var(--primary);
+    color: #fff;
+    text-align: center;
+    padding: 0.8rem;
+    border-radius: 0.5rem;
+    text-decoration: none;
+    font-weight: 700;
+    transition: background 0.2s;
+}
+
+.btn-detalhes:hover {
+    background-color: #003580;
+}
+
+.vazio { text-align: center; font-size: 1.2rem; color: #777; width: 100%; grid-column: 1 / -1; }
+
+/* ===== PÁGINA DE DETALHES DO PET ===== */
+
+.btn-voltar-pet {
+    display: inline-block;
+    margin: 2rem 0;
+    color: #666;
+    text-decoration: none;
+    font-weight: 600;
+}
+.btn-voltar-pet:hover { color: var(--primary); }
+
+.perfil-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Meio a meio */
+    gap: 4rem;
+    margin-bottom: 5rem;
+    align-items: start;
+}
+
+/* Fotos */
+.foto-grande {
+    width: 100%;
+    border-radius: 1rem;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    max-height: 500px;
+    object-fit: cover;
+}
+
+.miniaturas-grid {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+    flex-wrap: wrap;
+}
+
+.miniatura {
+    width: 80px;
+    height: 80px;
+    border-radius: 0.5rem;
+    object-fit: cover;
+    cursor: pointer;
+    border: 2px solid transparent;
+    transition: 0.2s;
+}
+.miniatura:hover { border-color: var(--primary); }
+
+/* Informações */
+.header-perfil h1 {
+    font-size: 3rem;
+    color: var(--primary);
+    margin-bottom: 1rem;
+    line-height: 1;
+}
+
+.badges-wrapper {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 2rem;
+}
+
+.badge-info {
+    background: #f0f7ff;
+    color: var(--primary);
+    padding: 0.5rem 1rem;
+    border-radius: 50px; /* Redondo */
+    font-weight: 600;
+    font-size: 0.9rem;
+    white-space: nowrap; /* Impede o texto de quebrar dentro da badge */
+}
+.historia-texto h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    color: #333;
+}
+
+.historia-texto p {
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+    font-size: 1.1rem;
+}
+
+.detalhes-tecnicos {
+    list-style: none;
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+    background: #fff;
+    border: 1px solid #eee;
+    border-radius: 0.5rem;
+}
+
+.detalhes-tecnicos li {
+    margin-bottom: 0.5rem;
+    color: #444;
+}
+
+/* BOX ADOÇÃO (Instagram) */
+.box-adocao {
+    background: #fff0f5; /* Um rosinha/vermelho bem claro para chamar atenção */
+    padding: 2rem;
+    border-radius: 1rem;
+    border: 1px solid #ffdde5;
+    text-align: center;
+}
+
+.box-adocao h3 {
+    color: #d81b60;
+    margin-bottom: 0.5rem;
+}
+.box-descricao {
+    border: 1px solid #000; /* Borda preta fina como pediu */
+    border-radius: 0.8rem;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    background-color: #fff; /* Garante fundo branco */
+}
+
+.box-descricao h3 {
+    margin-top: 0;
+    font-size: 1.4rem;
+    color: #333;
+    margin-bottom: 1rem;
+}
+
+.box-descricao p {
+    color: #444;
+    line-height: 1.8; /* Espaçamento bom para leitura */
+    font-size: 1.05rem;
+    margin-bottom: 0;
+}
+
+.btn-instagram-grande {
+    display: block;
+    background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+    color: white;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    text-decoration: none;
+    font-weight: 700;
+    margin: 1.5rem 0;
+    transition: transform 0.2s;
+}
+
+.btn-instagram-grande:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(220, 39, 67, 0.3);
+}
+
+.aviso-visita {
+    font-size: 0.85rem;
+    color: #777;
+    background: #fff;
+    padding: 0.8rem;
+    border-radius: 0.5rem;
+}
+
+/* Responsividade */
+@media (max-width: 900px) {
+    .perfil-grid {
+        grid-template-columns: 1fr; /* Uma coluna só */
+        gap: 2rem;
+    }
+}
+/* ===== CARROSSEL DE FOTOS ===== */
+
+.destaque-wrapper {
+    width: 100%;
+    /* 1. Definimos uma altura FIXA. Assim o layout não "pula" se a foto for vertical ou horizontal */
+    height: 500px; 
+    
+    /* 2. Cor de fundo neutra para fotos que não preenchem tudo */
+    background-color: #f8f9fa; 
+    
+    border-radius: 1rem;
+    
+    /* 3. O SEGREDO: overflow hidden corta qualquer pedaço da imagem que tentar fugir */
+    overflow: hidden; 
+    
+    margin-bottom: 1rem;
+    border: 1px solid #eee;
+    
+    /* 4. Centraliza a imagem perfeitamente no meio do quadro */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.foto-grande {
+    /* Garante que a imagem nunca seja maior que a caixa pai */
+    max-width: 100%;
+    max-height: 100%;
+    
+    /* Opcional: use 'contain' para mostrar a foto inteira (com bordas brancas se precisar)
+       ou 'cover' para preencher tudo (mas pode cortar a cabeça/pés do bicho) */
+    object-fit: contain; 
+    
+    transition: opacity 0.3s;
+}
+
+/* Área das Miniaturas */
+.miniaturas-container {
+    width: 100%;
+    overflow-x: auto; /* Permite rolar para o lado se tiver muitas fotos */
+    padding-bottom: 5px;
+}
+
+/* Scrollbar fina e bonita para as miniaturas */
+.miniaturas-container::-webkit-scrollbar {
+    height: 6px;
+}
+.miniaturas-container::-webkit-scrollbar-thumb {
+    background-color: #ccc;
+    border-radius: 10px;
+}
+
+.miniaturas-grid {
+    display: flex;
+    gap: 0.8rem;
+    /* Garante que as miniaturas fiquem em uma linha só */
+    flex-wrap: nowrap; 
+}
+.caracteristicas-grid {
+    display: flex;
+    flex-wrap: wrap; /* Permite quebrar linha se não couber */
+    gap: 0.8rem;
+    margin-bottom: 2rem;
+}
+
+.miniatura {
+    width: 80px;
+    height: 80px; /* Quadrado perfeito */
+    border-radius: 0.5rem;
+    
+    /* Aqui usamos cover para a miniatura ficar bonitinha preenchida */
+    object-fit: cover; 
+    
+    cursor: pointer;
+    border: 2px solid transparent;
+    transition: all 0.2s ease;
+    opacity: 0.6;
+    flex-shrink: 0; /* Impede que a miniatura seja esmagada */
+}
+
+.miniatura:hover {
+    opacity: 1;
+}
+
+/* Estado Ativo (Foto selecionada) */
+.miniatura.ativa {
+    border-color: var(--primary);
+    opacity: 1;
+    transform: scale(1.05);
+}
+
+/* ===== RESPONSIVIDADE ===== */
+@media (max-width: 900px) {
+    /* No celular, a caixa grande diminui para caber na tela */
+    .destaque-wrapper {
+        height: 300px; 
+    }
+    
+    .miniatura {
+        width: 60px;
+        height: 60px;
+    }
+}
+/* ===== ESTILO DAS SETAS DO CARROSSEL (MINIMALISTA) ===== */
+
+.destaque-wrapper {
+    position: relative;
+}
+
+.nav-seta {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%); /* Centraliza verticalmente */
+    
+    /* Forma Circular Minimalista */
+    width: 2.5rem;  /* ~40px */
+    height: 2.5rem;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.9); /* Branco levemente transparente */
+    color: var(--primary); /* Seta na cor Azul da ONG */
+    
+    border: none;
+    font-size: 1rem;
+    cursor: pointer;
+    z-index: 10;
+    
+    /* Centraliza o ícone da seta dentro da bolinha */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    /* Sombra suave para destacar da foto */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+    transition: all 0.2s ease;
+    
+    /* Impede seleção de texto */
+    user-select: none; 
+}
+
+.nav-seta:hover {
+    background-color: #ffffff; /* Fica branco total no hover */
+    transform: translateY(-50%) scale(1.1); /* Cresce um pouquinho */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
+}
+
+.nav-seta:active {
+    transform: translateY(-50%) scale(0.95); /* Efeito de clique */
+}
+
+/* Posicionamento com um respiro da borda */
+.seta-esq {
+    left: 1rem;
+}
+
+.seta-dir {
+    right: 1rem;
+}
+
+/* Responsividade: Bolinhas menores no celular */
+@media (max-width: 600px) {
+    .nav-seta {
+        width: 2rem; /* 32px */
+        height: 2rem;
+        font-size: 0.9rem;
+    }
+    
+    .seta-esq { left: 0.5rem; }
+    .seta-dir { right: 0.5rem; }
+}
+
+.btn-cadastro-site {
+    display: block;
+    background-color: #fff;
+    color: var(--primary);
+    border: 2px solid var(--primary);
+    padding: 1rem;
+    border-radius: 0.5rem;
+    text-decoration: none;
+    font-weight: 700;
+    transition: 0.2s;
+}
+.btn-cadastro-site:hover {
+    background-color: var(--primary);
+    color: #fff;
+}

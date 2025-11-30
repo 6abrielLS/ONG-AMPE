@@ -1,11 +1,99 @@
 {% extends 'base.html' %} {% load static %} {% block extra_css %}
 <link rel="stylesheet" href="{% static 'css/style-sobre.css' %}" />
 {% endblock %} {% block content %}
-<main>
-  <div class="container">
-    <h1 class="titulo-sobre">Quem Somos</h1>
+<main class="com-padding-topo">
+  <section class="sobre-header">
+    <div class="container">
+      <h1>Quem Somos</h1>
+      <p>Conheça a história e os corações por trás da ONG AMPA</p>
+    </div>
+  </section>
 
-    <p class="texto-historia">A ONG AMPA nasceu em 2010 com o objetivo de...</p>
-  </div>
+  <section class="sobre-historia">
+    <div class="container historia-grid">
+      <div class="historia-texto">
+        <h2>Nossa História</h2>
+        <p>
+          A
+          <strong
+            >Associação Mirassolense de Proteção aos Animais (AMPA)</strong
+          >
+          nasceu em 2010, fruto da união de um grupo de voluntários indignados
+          com o alto índice de abandono na cidade.
+        </p>
+        <p>
+          O que começou com resgates improvisados em lares temporários cresceu.
+          Hoje, somos referência no combate aos maus-tratos, atuando não apenas
+          no resgate, mas principalmente na
+          <strong>reabilitação física e emocional</strong> de cães e gatos que
+          foram negligenciados.
+        </p>
+        <p>
+          Não somos apenas um abrigo; somos um centro de passagem onde vidas são
+          transformadas. Cada animal que entra aqui recebe tratamento
+          veterinário, castração, vacinas e, acima de tudo, a promessa de que
+          nunca mais sofrerá sozinho.
+        </p>
+      </div>
+      <div class="historia-imagem">
+        <img
+          src="{% static 'img/img_pri_ampa.png' %}"
+          alt="Voluntários da AMPA cuidando de um cachorro"
+        />
+      </div>
+    </div>
+  </section>
+
+  <section class="sobre-numeros">
+    <div class="container numeros-grid">
+      <div class="numero-item">
+        <span class="grande-numero">+10</span>
+        <p>Anos de História</p>
+      </div>
+      <div class="numero-item">
+        <span class="grande-numero">+2.500</span>
+        <p>Animais Adotados</p>
+      </div>
+      <div class="numero-item">
+        <span class="grande-numero">100%</span>
+        <p>Trabalho Voluntário</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="sobre-pilares">
+    <div class="container">
+      <div class="pilares-grid">
+        <div class="pilar-card">
+          <div class="pilar-icon">🎯</div>
+          <h3>Missão</h3>
+          <p>
+            Resgatar, reabilitar e promover a adoção responsável, além de
+            conscientizar a sociedade sobre a guarda responsável e o respeito à
+            vida animal.
+          </p>
+        </div>
+
+        <div class="pilar-card">
+          <div class="pilar-icon">👁️</div>
+          <h3>Visão</h3>
+          <p>
+            Ser referência estadual em bem-estar animal, zerando o número de
+            animais abandonados em Mirassol através de políticas públicas e
+            castração.
+          </p>
+        </div>
+
+        <div class="pilar-card">
+          <div class="pilar-icon">💙</div>
+          <h3>Valores</h3>
+          <p>
+            Ética no tratamento, Transparência com doações, Respeito à vida,
+            Amor incondicional e Comprometimento social.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
 </main>
 {% endblock %}
